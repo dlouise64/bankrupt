@@ -7,15 +7,14 @@ const Container: React.FC = ({ children }) => {
 
 const ContainerWrapper = styled.div`
 	margin: 0 auto;
-	margin-top: 4%;
-	height: 100vh;
+	margin-top: 3%;
 
 	@media (min-width: 657px) {
 		width: 80vh;
 	}
 
 	@media (min-width: 768px) {
-		width: 72vh;
+		width: 90vh;
 	}
 
 	@media (min-width: 1440px) {

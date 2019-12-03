@@ -5,7 +5,8 @@ const colour = {
 	turq: '#40acab',
 	orange: '#e68054',
 	beige: '#db9e9a',
-	white: '#fff'
+	white: '#fff',
+	purple: '#9b89b8'
 }
 
 export default colour

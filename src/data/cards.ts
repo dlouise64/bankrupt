@@ -2,9 +2,10 @@ import colour from './colors'
 
 const cards = [
 	{
-		type: 'chance',
+		type: 'draw',
 		name: '?',
 		color: colour.white,
+		type_color: colour.purple,
 		description: 'Draw a Chance card',
 		position: 5
 	},
@@ -25,6 +26,7 @@ const cards = [
 		type: 'text',
 		name: 'Tax',
 		color: colour.white,
+		type_color: colour.purple,
 		description: 'Pay 7% of your assets to the bank when you land on this card',
 		position: 7
 	},
@@ -45,6 +47,7 @@ const cards = [
 		type: 'utility',
 		name: 'Water works',
 		color: colour.white,
+		type_color: colour.beige,
 		property_details: {
 			price: 120,
 			rent: 12,
@@ -58,12 +61,14 @@ const cards = [
 		type: 'text',
 		name: 'Jail',
 		position: 10,
-		color: colour.white
+		color: colour.white,
+		type_color: colour.purple
 	},
 	{
 		type: 'utility',
 		name: 'Electricity',
 		color: colour.white,
+		type_color: colour.beige,
 		property_details: {
 			price: 80,
 			rent: 8,
@@ -139,6 +144,7 @@ const cards = [
 		type: 'utility',
 		name: 'Airlines',
 		color: colour.white,
+		type_color: colour.beige,
 		property_details: {
 			price: 60,
 			rent: 5,
@@ -163,6 +169,7 @@ const cards = [
 		type: 'text',
 		name: 'Tax',
 		color: colour.white,
+		type_color: colour.purple,
 		description: 'Pay 7% of your assets to the bank when you land on this card',
 		position: 13
 	},
@@ -208,7 +215,8 @@ const cards = [
 		type: 'text',
 		name: 'Start',
 		position: 0,
-		color: colour.white
+		color: colour.white,
+		type_color: colour.purple
 	},
 	{
 		type: 'place',
@@ -241,6 +249,7 @@ const cards = [
 		type: 'utility',
 		name: 'Railway',
 		color: colour.white,
+		type_color: colour.beige,
 		property_details: {
 			price: 140,
 			rent: 15,
@@ -264,9 +273,10 @@ const cards = [
 		position: 16
 	},
 	{
-		type: 'community',
+		type: 'draw',
 		name: '?',
 		color: colour.white,
+		type_color: colour.purple,
 		description: 'Draw a Community card',
 		position: 15
 	}

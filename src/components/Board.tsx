@@ -8,6 +8,10 @@ interface ICard {
 	type: string
 	color: string
 	name: string
+	property_details: {
+		price: number
+	}
+	type_color?: string
 }
 
 const Board: React.FC = () => {
@@ -22,15 +26,20 @@ const Board: React.FC = () => {
 	)
 }
 
-const Cards: React.FC = props => {
+const Cards: React.FC = () => {
 	return (
 		<AppContext.Consumer>
 			{value =>
 				value.cards.map((card: ICard, i: number) => {
-					const { type, color, name } = card
 					return (
-						<Card key={i} empty={type === 'empty' && true} color={color}>
-							<h2>{name}</h2>
+						<Card
+							key={i}
+							empty={card.type === 'empty' && true}
+							color={card.color}
+							type_color={card.type_color}
+							type={card.type}>
+							<h2>{card.name}</h2>
+							{card.property_details && <p>$ {card.property_details.price}</p>}
 						</Card>
 					)
 				})
@@ -46,7 +55,7 @@ const BoardWrapper = styled.div`
 	height: auto;
 
 	@media (min-width: 768px) {
-		border-radius: 10px;
+		border-radius: 22px;
 	}
 
 	@media (min-width: 1440px) {

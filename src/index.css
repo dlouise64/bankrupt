@@ -1,19 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900|Luckiest+Guy|Lilita+One');
+
+* {
+	font-family: Montserrat;
+	font-weight: 900;
+	box-sizing: border-box;
+}
+html {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	padding: 5px;
 	height: 100vh;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
+	background: #0a6981;
+	text-align: center;
+	background-image: linear-gradient(#0c4059, #0a6981);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
-}
-
-* {
-	box-sizing: border-box;
 }

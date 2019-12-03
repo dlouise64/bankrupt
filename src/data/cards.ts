@@ -1,6 +1,6 @@
 import colour from './colors'
-import { ICard } from '../interfaces/IBoard'
-const cards: Array<ICard> = [
+
+const cards = [
 	{
 		type: 'chance',
 		name: '?',

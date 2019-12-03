@@ -12,6 +12,11 @@ const CardWrapper = styled.div`
 	height: 0;
 	padding-bottom: 96%;
 
+	// large screens
+	@media all and (min-width: 1690px) {
+		box-shadow: inset 0 0 0 8px #fff;
+	}
+
 	// desktop
 	@media all and (max-width: 1690px) {
 		box-shadow: inset 0 0 0 6px #fff;

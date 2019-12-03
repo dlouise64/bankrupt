@@ -15,7 +15,7 @@ const CardWrapper = styled.div`
 	padding: 6%;
 	width: 100%;
 	height: 0;
-	padding-bottom: 86%;
+	padding-bottom: 89%;
 `
 
 const CardBody = styled.div`
@@ -24,7 +24,7 @@ const CardBody = styled.div`
 	border-radius: 10%;
 	width: 100%;
 	height: 0;
-	padding-bottom: 91%;
+	padding-bottom: 94%;
 `
 
 export default Card

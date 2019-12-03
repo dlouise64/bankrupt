@@ -56,24 +56,24 @@ const Board: React.FC = () => {
 }
 
 const BoardWrapper = styled.div`
-	padding: 2%;
-	border-radius: 0.3125rem;
+	padding: 1.5%;
+	border-radius: 0.625rem;
 	background: #f19e75;
 	height: auto;
 
-	@media (min-width: 48rem) {
-		border-radius: 0.625rem;
+	@media (min-width: 768px) {
+		border-radius: 10px;
 	}
 
-	@media (min-width: 90rem) {
-		border-radius: 1.25rem;
+	@media (min-width: 1440px) {
+		border-radius: 20px;
 	}
 `
 
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
-	grid-gap: 0.125rem;
+	grid-gap: 2px;
 `
 
 export default Board

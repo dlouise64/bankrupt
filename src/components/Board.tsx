@@ -2,53 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import Container from './Layout/Container'
 import Card from './Card'
+import cards from '../data/cards'
 
 const Board: React.FC = () => {
 	return (
 		<Container>
 			<BoardWrapper>
 				<Grid>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{cards.map((card, i: number) => (
+						<Card
+							key={i}
+							empty={card.type === 'empty' && true}
+							color={card.color}>
+							<h2>{card.name}</h2>
+						</Card>
+					))}
 				</Grid>
 			</BoardWrapper>
 		</Container>

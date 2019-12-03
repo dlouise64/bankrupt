@@ -1,17 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
+import colour from '../data/colors'
 
 interface IProps {
 	empty?: boolean
+	color?: string
 }
 const Card: React.FC<IProps> = props =>
-	props.empty ? <EmptyCard /> : <CardWrapper>{props.children}</CardWrapper>
+	props.empty ? (
+		<EmptyCard />
+	) : (
+		<CardWrapper color={props.color}>
+			<CardBody>{props.children}</CardBody>
+		</CardWrapper>
+	)
+
+const CardBody = styled.div`
+	color: ${colour.white};
+	text-align: center;
+	h2 {
+		font-size: 2vh;
+	}
+`
 
 const EmptyCard = styled.div`
 	background: transparent;
 `
 const CardWrapper = styled.div`
-	background: #ccc;
+	background: ${props => props.color};
 	border-radius: 20%;
 	width: 100%;
 	height: 0;

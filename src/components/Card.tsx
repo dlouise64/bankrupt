@@ -61,7 +61,7 @@ const CardBody = styled.div`
 
 			${props =>
 				props.type === 'draw' &&
-				'margin: 0; font-size: 23px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'}
+				'margin: 0; font-size: 36px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'}
 		}
 		p {
 			font-size: 12px;

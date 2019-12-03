@@ -57,22 +57,22 @@ const Board: React.FC = () => {
 
 const BoardWrapper = styled.div`
 	padding: 1%;
-	border-radius: 5px;
+	border-radius: 0.3125rem;
 	background: #f19e75;
 
-	@media (min-width: 768px) {
-		border-radius: 10px;
+	@media (min-width: 48rem) {
+		border-radius: 0.625rem;
 	}
 
-	@media (min-width: 1440px) {
-		border-radius: 20px;
+	@media (min-width: 90rem) {
+		border-radius: 1.25rem;
 	}
 `
 
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
-	grid-gap: 2px;
+	grid-gap: 0.125rem;
 `
 
 export default Board

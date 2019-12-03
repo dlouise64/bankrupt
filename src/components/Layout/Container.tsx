@@ -9,8 +9,13 @@ const ContainerWrapper = styled.div`
 	margin: 0 auto;
 	margin-top: 4%;
 	height: 100vh;
-	@media (min-width: 768px) {
+
+	@media (min-width: 657px) {
 		width: 80vh;
+	}
+
+	@media (min-width: 768px) {
+		width: 72vh;
 	}
 
 	@media (min-width: 1440px) {

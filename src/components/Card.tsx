@@ -2,29 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Card: React.FC = ({ children }) => {
-	return (
-		<CardWrapper>
-			<CardBody>{children}</CardBody>
-		</CardWrapper>
-	)
+	return <CardWrapper>{children}</CardWrapper>
 }
 
 const CardWrapper = styled.div`
-	background: #fff;
-	border-radius: 13%;
-	padding: 6%;
-	width: 100%;
-	height: 0;
-	padding-bottom: 89%;
-`
-
-const CardBody = styled.div`
 	background: #ccc;
-	height: inherit;
-	border-radius: 10%;
+	border-radius: 20%;
 	width: 100%;
 	height: 0;
-	padding-bottom: 94%;
+	padding-bottom: 96%;
+	box-shadow: inset 0 0 0 3px #fff;
 `
 
 export default Card

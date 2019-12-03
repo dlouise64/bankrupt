@@ -12,10 +12,10 @@ const Card: React.FC = ({ children }) => {
 const CardWrapper = styled.div`
 	background: #fff;
 	border-radius: 13%;
-	padding: 5%;
-	width: 90%;
+	padding: 6%;
+	width: 100%;
 	height: 0;
-	padding-bottom: 89%;
+	padding-bottom: 86%;
 `
 
 const CardBody = styled.div`
@@ -24,7 +24,7 @@ const CardBody = styled.div`
 	border-radius: 10%;
 	width: 100%;
 	height: 0;
-	padding-bottom: 94%;
+	padding-bottom: 91%;
 `
 
 export default Card

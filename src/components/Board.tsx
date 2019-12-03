@@ -56,9 +56,10 @@ const Board: React.FC = () => {
 }
 
 const BoardWrapper = styled.div`
-	padding: 1%;
+	padding: 2%;
 	border-radius: 0.3125rem;
 	background: #f19e75;
+	height: auto;
 
 	@media (min-width: 48rem) {
 		border-radius: 0.625rem;

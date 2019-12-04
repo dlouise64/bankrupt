@@ -116,7 +116,7 @@ const CardWrapper = styled.div<IProps>`
 		p {
 			margin-top: 43px;
 			font-size: ${props =>
-				props.type && props.type === 'draw' ? '90px' : '31px'};
+				props.type && props.type === 'draw' ? '90px' : '25px'};
 		}
 	}
 	@media only screen and (min-width: 1200px) and (min-height: 950px) {

@@ -52,6 +52,56 @@ const BoardWrapper = styled.div`
 	background: #f19e75;
 	height: auto;
 	border-radius: 20px;
+
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) {
+		border-radius: 11px;
+	}
+
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (min-width: 414px) and (min-height: 736px) {
+		border-radius: 14px;
+	}
+
+	@media only screen and (min-width: 375px) and (min-height: 812px) {
+		border-radius: 14px;
+	}
+
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media only screen and (min-width: 600px) {
+		border-radius: 25px;
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		border-radius: 25px;
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (min-width: 992px) {
+		border-radius: 32px;
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1200px) {
+		border-radius: 44px;
+	}
+	@media only screen and (min-width: 1200px) and (min-height: 950px) {
+		border-radius: 44px;
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1440px) {
+		border-radius: 45px;
+	}
+
+	@media only screen and (min-width: 1200px) and (min-height: 900px) {
+		border-radius: 45px;
+	}
+
+	@media only screen and (min-width: 1440px) and (min-height: 900px) {
+		border-radius: 60px;
+	}
 `
 
 const Grid = styled.div`

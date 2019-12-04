@@ -14,7 +14,7 @@ const Card: React.FC<IProps> = props =>
 		<CardWrapper
 			color={props.color}
 			type_color={props.type_color}
-			borderBase={20}>
+			borderBase={22}>
 			{props.children}
 		</CardWrapper>
 	)
@@ -25,7 +25,7 @@ const EmptyCard = styled.div`
 
 const CardWrapper = styled.div<IProps>`
 	background: ${props => props.color};
-	border-radius: 20%;
+	border-radius: 16%;
 	width: 100%;
 	height: 0;
 	padding-bottom: 96%;
@@ -47,7 +47,17 @@ const CardWrapper = styled.div<IProps>`
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
 		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 16}px #fff;
+			${props => props.borderBase && props.borderBase - 18}px #fff;
+		p {
+			margin-top: 10px;
+			font-size: 6px;
+		}
+	}
+
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (min-width: 414px) and (min-height: 736px) {
+		box-shadow: inset 0 0 0
+			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
 			margin-top: 10px;
 			font-size: 7px;
@@ -56,7 +66,7 @@ const CardWrapper = styled.div<IProps>`
 
 	@media only screen and (min-width: 375px) and (min-height: 812px) {
 		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 16}px #fff;
+			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
 			font-size: 7px;
 		}
@@ -74,7 +84,7 @@ const CardWrapper = styled.div<IProps>`
 	/* Medium devices (landscape tablets, 768px and up) */
 	@media only screen and (min-width: 768px) {
 		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 10}px #fff;
+			${props => props.borderBase && props.borderBase - 12}px #fff;
 		p {
 			margin-top: 22px;
 			font-size: 14px;

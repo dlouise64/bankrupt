@@ -53,5 +53,10 @@ const ContainerWrapper = styled.div`
 		margin-top: -8.5%;
 		transform: scale(0.5);
 	}
+
+	@media only screen and (min-width: 1440px) and (min-height: 900px) {
+		margin-top: -9.5%;
+		transform: scale(0.4);
+	}
 `
 export default Container

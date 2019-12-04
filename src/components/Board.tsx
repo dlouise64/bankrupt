@@ -59,6 +59,14 @@ const Grid = styled.div`
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
 	grid-template-rows: repeat(6, minmax(auto, 1fr));
 	grid-gap: 2px;
+
+	@media only screen and (min-width: 1280px) and (min-height: 600px) {
+		grid-gap: 10px;
+	}
+
+	@media only screen and (min-width: 1280px) and (min-height: 900px) {
+		grid-gap: 12px;
+	}
 `
 
 export default Board

@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Card: React.FC = ({ children }) => {
-	return <CardWrapper>{children}</CardWrapper>
+interface IProps {
+	empty?: boolean
 }
+const Card: React.FC<IProps> = props =>
+	props.empty ? <EmptyCard /> : <CardWrapper>{props.children}</CardWrapper>
 
+const EmptyCard = styled.div`
+	background: transparent;
+`
 const CardWrapper = styled.div`
 	background: #ccc;
 	border-radius: 20%;

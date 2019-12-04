@@ -16,31 +16,31 @@ const Board: React.FC = () => {
 					<Card />
 
 					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					<Card empty />
+					<Card empty />
+					<Card empty />
+					<Card empty />
 					<Card />
 
 					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					<Card empty />
+					<Card empty />
+					<Card empty />
+					<Card empty />
 					<Card />
 
 					<Card />
+					<Card empty />
+					<Card empty />
+					<Card empty />
+					<Card empty />
 					<Card />
+
 					<Card />
-					<Card />
-					<Card />
+					<Card empty />
+					<Card empty />
+					<Card empty />
+					<Card empty />
 					<Card />
 
 					<Card />
@@ -73,7 +73,8 @@ const BoardWrapper = styled.div`
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
-	grid-gap: 1px;
+	grid-template-rows: repeat(6, minmax(auto, 1fr));
+	grid-gap: 2px;
 `
 
 export default Board

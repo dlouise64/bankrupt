@@ -2,56 +2,49 @@ import React from 'react'
 import styled from 'styled-components'
 import Container from './Layout/Container'
 import Card from './Card'
+import { AppContext } from '../App'
+
+interface ICard {
+	type: string
+	color: string
+	name: string
+	property_details: {
+		price: number
+	}
+	type_color?: string
+}
 
 const Board: React.FC = () => {
 	return (
 		<Container>
 			<BoardWrapper>
 				<Grid>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card empty />
-					<Card />
-
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					<Cards />
 				</Grid>
 			</BoardWrapper>
 		</Container>
+	)
+}
+
+const Cards: React.FC = () => {
+	return (
+		<AppContext.Consumer>
+			{value =>
+				value.cards.map((card: ICard, i: number) => {
+					return (
+						<Card
+							key={i}
+							empty={card.type === 'empty' && true}
+							color={card.color}
+							type_color={card.type_color}
+							type={card.type}>
+							<h2>{card.name}</h2>
+							{card.property_details && <p>$ {card.property_details.price}</p>}
+						</Card>
+					)
+				})
+			}
+		</AppContext.Consumer>
 	)
 }
 

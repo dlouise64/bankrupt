@@ -7,19 +7,51 @@ const Container: React.FC = ({ children }) => {
 
 const ContainerWrapper = styled.div`
 	margin: 0 auto;
-	margin-top: 4%;
 	height: 100vh;
 
-	@media (min-width: 657px) {
-		width: 80vh;
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) {
+		margin-top: 40%;
 	}
 
-	@media (min-width: 768px) {
-		width: 72vh;
+	@media only screen and (min-width: 375px) and (min-height: 812px) {
+		margin-top: 50%;
 	}
 
-	@media (min-width: 1440px) {
-		width: 40%;
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media only screen and (min-width: 600px) {
+		margin-top: -130px;
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		margin-top: 120px;
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (min-width: 992px) {
+		margin-top: 160px;
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1200px) {
+		margin-top: -130px;
+		transform: scale(0.4);
+	}
+	@media only screen and (min-width: 1200px) and (min-height: 950px) {
+		margin-top: -7%;
+		transform: scale(0.5);
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1440px) {
+		margin-top: -190px;
+		transform: scale(0.4);
+	}
+
+	@media only screen and (min-width: 1200px) and (min-height: 900px) {
+		margin-top: -8.5%;
+		transform: scale(0.5);
 	}
 `
 export default Container

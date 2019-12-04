@@ -16,35 +16,36 @@ const CardWrapper = styled.div`
 	width: 100%;
 	height: 0;
 	padding-bottom: 96%;
+	box-shadow: inset 0 0 0 4px #fff;
 
-	// large screens
-	@media all and (min-width: 1690px) {
-		box-shadow: inset 0 0 0 8px #fff;
-	}
-
-	// desktop
-	@media all and (max-width: 1690px) {
-		box-shadow: inset 0 0 0 6px #fff;
-	}
-
-	// Ipad pro
-	@media all and (max-width: 1280px) {
-		box-shadow: inset 0 0 0 8px #fff;
-	}
-
-	// Ipad
-	@media all and (max-width: 980px) {
-		box-shadow: inset 0 0 0 8px #fff;
-	}
-
-	// other
-	@media all and (max-width: 736px) {
-		box-shadow: inset 0 0 0 8px #fff;
-	}
-
-	// large phones
-	@media all and (max-width: 480px) {
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) {
 		box-shadow: inset 0 0 0 4px #fff;
+	}
+
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media only screen and (min-width: 600px) {
+		box-shadow: inset 0 0 0 9px #fff;
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		box-shadow: inset 0 0 0 10px #fff;
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (min-width: 992px) {
+		box-shadow: inset 0 0 0 12px #fff;
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1200px) {
+		box-shadow: inset 0 0 0 15px #fff;
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media only screen and (min-width: 1440px) {
+		box-shadow: inset 0 0 0 24px #fff;
 	}
 `
 

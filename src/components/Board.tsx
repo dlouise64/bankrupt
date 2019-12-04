@@ -60,14 +60,15 @@ const BoardWrapper = styled.div`
 	border-radius: 0.625rem;
 	background: #f19e75;
 	height: auto;
+	border-radius: 20px;
 
-	@media (min-width: 768px) {
-		border-radius: 10px;
-	}
+	// @media (min-width: 768px) {
+	// 	border-radius: 10px;
+	// }
 
-	@media (min-width: 1440px) {
-		border-radius: 20px;
-	}
+	// @media (min-width: 1440px) {
+	// 	border-radius: 20px;
+	// }
 `
 
 const Grid = styled.div`

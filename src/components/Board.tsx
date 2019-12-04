@@ -36,6 +36,7 @@ const Cards: React.FC = () => {
 							key={i}
 							color={card.color}
 							type_color={card.type_color}
+							type={card.type}
 							empty={card.type === 'empty' && true}>
 							<p>{card.name}</p>
 						</Card>

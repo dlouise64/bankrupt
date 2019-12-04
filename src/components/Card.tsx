@@ -6,6 +6,7 @@ interface IProps {
 	borderBase?: number
 	color?: string
 	type_color?: string
+	type: string
 }
 const Card: React.FC<IProps> = props =>
 	props.empty ? (
@@ -14,6 +15,7 @@ const Card: React.FC<IProps> = props =>
 		<CardWrapper
 			color={props.color}
 			type_color={props.type_color}
+			type={props.type}
 			borderBase={22}>
 			{props.children}
 		</CardWrapper>
@@ -50,7 +52,8 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
 			margin-top: 10px;
-			font-size: 6px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '20px' : '6px'};
 		}
 	}
 
@@ -60,7 +63,8 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
 			margin-top: 10px;
-			font-size: 7px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '20px' : '7px'};
 		}
 	}
 
@@ -68,7 +72,8 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			font-size: 7px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '20px' : '7px'};
 		}
 	}
 
@@ -77,7 +82,8 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 12}px #fff;
 		p {
-			font-size: 7px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '20px' : '7px'};
 		}
 	}
 
@@ -87,7 +93,8 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 12}px #fff;
 		p {
 			margin-top: 22px;
-			font-size: 14px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '50px' : '14px'};
 		}
 	}
 
@@ -97,7 +104,8 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 8}px #fff;
 		p {
 			margin-top: 28px;
-			font-size: 20px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '70px' : '20px'};
 		}
 	}
 
@@ -107,14 +115,16 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 5}px #fff;
 		p {
 			margin-top: 43px;
-			font-size: 31px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '90px' : '31px'};
 		}
 	}
 	@media only screen and (min-width: 1200px) and (min-height: 950px) {
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 5}px #fff;
 		p {
-			font-size: 7px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '90px' : '7px'};
 		}
 	}
 
@@ -123,7 +133,8 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 16}px #fff;
 		p {
-			font-size: 7px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '20px' : '7px'};
 		}
 	}
 
@@ -132,15 +143,17 @@ const CardWrapper = styled.div<IProps>`
 			${props => props.borderBase && props.borderBase - 5}px #fff;
 		p {
 			margin-top: 45px;
-			font-size: 31px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '100px' : '31px'};
 		}
 	}
 
-	@media only screen and (min-width: 1440px) and (min-height: 900px) {
+	@media only screen and (min-width: 1680px) and (min-height: 900px) {
 		box-shadow: inset 0 0 0 ${props => props.borderBase}px #fff;
 		p {
 			margin-top: 55px;
-			font-size: 40px;
+			font-size: ${props =>
+				props.type && props.type === 'draw' ? '140px' : '40px'};
 		}
 	}
 

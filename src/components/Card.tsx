@@ -153,7 +153,7 @@ const CardWrapper = styled.div<IProps>`
 		p {
 			margin-top: 55px;
 			font-size: ${props =>
-				props.type && props.type === 'draw' ? '140px' : '40px'};
+				props.type && props.type === 'draw' ? '140px' : '36px'};
 		}
 	}
 

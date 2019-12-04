@@ -4,12 +4,15 @@ import styled from 'styled-components'
 interface IProps {
 	empty?: boolean
 	borderBase?: number
+	color?: string
 }
 const Card: React.FC<IProps> = props =>
 	props.empty ? (
 		<EmptyCard />
 	) : (
-		<CardWrapper borderBase={22}>{props.children}</CardWrapper>
+		<CardWrapper color={props.color} borderBase={22}>
+			{props.children}
+		</CardWrapper>
 	)
 
 const EmptyCard = styled.div`
@@ -17,7 +20,7 @@ const EmptyCard = styled.div`
 `
 
 const CardWrapper = styled.div<IProps>`
-	background: #ccc;
+	background: ${props => props.color};
 	border-radius: 20%;
 	width: 100%;
 	height: 0;

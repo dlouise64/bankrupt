@@ -34,13 +34,18 @@ const Cards: React.FC = () => {
 					return (
 						<Card
 							key={i}
-							empty={card.type === 'empty' && true}
 							color={card.color}
-							type_color={card.type_color}
-							type={card.type}>
-							<h2>{card.name}</h2>
-							{card.property_details && <p>$ {card.property_details.price}</p>}
-						</Card>
+							empty={card.type === 'empty' && true}
+						/>
+						// <Card
+						// 	key={i}
+						// 	empty={card.type === 'empty' && true}
+						// 	color={card.color}
+						// 	type_color={card.type_color}
+						// 	type={card.type}>
+						// 	<h2>{card.name}</h2>
+						// 	{card.property_details && <p>$ {card.property_details.price}</p>}
+						// </Card>
 					)
 				})
 			}

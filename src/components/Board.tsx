@@ -134,7 +134,7 @@ const BoardWrapper = styled.div`
 	}
 
 	@media only screen and (min-height: 800px) {
-		margin-top: 60%;
+		margin-top: 50%;
 	}
 
 	// @media only screen and (min-height: 736px) {

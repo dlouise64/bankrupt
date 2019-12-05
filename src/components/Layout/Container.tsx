@@ -65,5 +65,11 @@ const ContainerWrapper = styled.div`
 		// margin-bottom: 0;
 		// position: relative;
 	}
+	// height: auto;
+	// &:after {
+	// 	content: '';
+	// 	display: table;
+	// 	clear: left;
+	// }
 `
 export default Container

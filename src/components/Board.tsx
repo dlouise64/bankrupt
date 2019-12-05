@@ -76,8 +76,12 @@ const BoardWrapper = styled.div`
 	padding: 1.5%;
 	border-radius: 0.625rem;
 	background: #f19e75;
-	height: auto;
 	border-radius: 20px;
+	position: absolute;
+	bottom: 6em;
+	left: 0;
+	right: 0;
+	height: auto;
 
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
@@ -128,26 +132,6 @@ const BoardWrapper = styled.div`
 	@media only screen and (min-width: 1440px) and (min-height: 900px) {
 		border-radius: 60px;
 	}
-
-	@media only screen and (min-height: 480px) {
-		margin-top: 50%;
-	}
-
-	@media only screen and (min-height: 800px) {
-		margin-top: 50%;
-	}
-
-	// @media only screen and (min-height: 736px) {
-	// 	margin-top: 60%;
-	// }
-
-	// @media only screen and (min-height: 812px) {
-	// 	margin-top: 60%;
-	// }
-
-	// @media only screen and (min-height: 1024px) {
-	// 	margin-top: 60%;
-	// }
 `
 
 const Grid = styled.div`
@@ -163,6 +147,6 @@ const Grid = styled.div`
 	@media only screen and (min-width: 1280px) and (min-height: 900px) {
 		grid-gap: 12px;
 	}
-s`
+`
 
 export default Board

@@ -60,7 +60,6 @@ const CardWrapper = styled.div<IProps>`
 	box-shadow: inset 0 0 0
 		${props => props.borderBase && props.borderBase - 18}px #fff;
 	p {
-		// color: red;
 		margin-top: ${props =>
 			props.type === 'utility'
 				? props.name === 'Water works' && '.9vh'
@@ -93,7 +92,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: red;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.9vh'
@@ -128,7 +126,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: red;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.9vh'
@@ -163,7 +160,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: purple;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.9vh'
@@ -197,7 +193,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: blue;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.9vh'
@@ -232,7 +227,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: blue;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.5vh'
@@ -267,7 +261,6 @@ const CardWrapper = styled.div<IProps>`
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			// color: blue;
 			margin-top: ${props =>
 				props.type === 'utility'
 					? props.name === 'Water works' && '.5vh'
@@ -293,6 +286,200 @@ const CardWrapper = styled.div<IProps>`
 			width: 100%;
 			left: 0;
 			bottom: ${props => (props.name === 'Water works' ? '.9vh' : '1.4vh')};
+		}
+	}
+
+	@media (min-width: 1250px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 12px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '2.5vh'
+					: '5.2vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '15vh'
+					: props => (props.type === 'utility' ? '1.9vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 5.5vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 11.5vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '4vh' : '6.5vh')};
+		}
+	}
+
+	@media only screen and (device-width: 1440px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 8px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '2vh'
+					: '3vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '13vh'
+					: props => (props.type === 'utility' ? '1.9vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 4vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 9vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '3vh' : '5.5vh')};
+		}
+	}
+
+	@media only screen and (device-width: 1280px) and (device-height: 800px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 8px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '2vh'
+					: '3vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '10vh'
+					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 4vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 9vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '3vh' : '5.5vh')};
+		}
+	}
+
+	@media only screen and (device-width: 1280px) and (device-height: 950px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 8px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '2vh'
+					: '3vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '10vh'
+					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 4vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 8vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '3vh' : '4vh')};
+		}
+	}
+
+	// Ipad
+	@media only screen and (device-width: 768px) and (device-height: 1024px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 8px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '1vh'
+					: '2vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '5vh'
+					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 2.5vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 4.5vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '1vh' : '2vh')};
+		}
+	}
+
+	// Ipad Pro
+	@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+		letter-spacing: 1px;
+		box-shadow: inset 0 0 0 12px #fff;
+		p {
+			margin-top: ${props =>
+				props.type === 'utility'
+					? props.name === 'Water works' && '1vh'
+					: '2vh'};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '5vh'
+					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 2.5vh;
+			width: 100%;
+			left: 0;
+			font-size: 2vw;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 4.5vh;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '1vh' : '2vh')};
 		}
 	}
 

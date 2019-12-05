@@ -132,6 +132,43 @@ const BoardWrapper = styled.div`
 	@media only screen and (min-width: 1440px) and (min-height: 900px) {
 		border-radius: 60px;
 	}
+
+	@media only screen and (device-width: 1336px) and (min-height: 657px) {
+		bottom: -18.7em;
+		transform: scale(0.45);
+	}
+
+	@media only screen and (device-width: 1440px) {
+		bottom: -9.5em;
+		transform: scale(0.55);
+	}
+
+	@media only screen and (device-width: 1280px) and (device-height: 800px) {
+		bottom: -8em;
+		transform: scale(0.55);
+	}
+
+	@media only screen and (device-width: 1280px) and (device-height: 950px) {
+		bottom: -5em;
+		transform: scale(0.55);
+	}
+
+	// Ipad
+	@media only screen and (device-width: 768px) and (device-height: 1024px) {
+		bottom: 9em;
+		margin: 12px;
+	}
+
+	// Ipad Pro
+	@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+		bottom: 13em;
+		margin: 12px;
+	}
+
+	@media (min-width: 1250px) {
+		bottom: -17.5em;
+		transform: scale(0.37);
+	}
 `
 
 const Grid = styled.div`

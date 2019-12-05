@@ -7,6 +7,7 @@ interface IProps {
 	color?: string
 	type_color?: string
 	type: string
+	name?: string
 }
 const Card: React.FC<IProps> = props =>
 	props.empty ? (
@@ -16,7 +17,8 @@ const Card: React.FC<IProps> = props =>
 			color={props.color}
 			type_color={props.type_color}
 			type={props.type}
-			borderBase={22}>
+			borderBase={22}
+			name={props.name}>
 			{props.children}
 		</CardWrapper>
 	)
@@ -42,7 +44,6 @@ const CardWrapper = styled.div<IProps>`
 		left: 0;
 		top: 1px;
 		position: absolute;
-
 		text-align: center;
 		color: ${props => props.type_color && props.type_color};
 	}
@@ -57,12 +58,15 @@ const CardWrapper = styled.div<IProps>`
 	}
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
+		letter-spacing: 0;
 		box-shadow: inset 0 0 0
 			${props => props.borderBase && props.borderBase - 18}px #fff;
 		p {
-			margin-top: 10px;
+			margin-top: ${props => (props.type === 'utility' ? '5px' : '9px')};
 			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '6px'};
+				props.type && props.type === 'draw'
+					? '20px'
+					: props => (props.type === 'utility' ? '6px' : '7px')};
 		}
 
 		span {
@@ -72,6 +76,46 @@ const CardWrapper = styled.div<IProps>`
 			left: 0;
 			font-size: 7px;
 			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 16px;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '7px' : '11px')};
+		}
+	}
+
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) and (min-height: 667px) {
+		// letter-spacing: 0;
+		box-shadow: inset 0 0 0
+			${props => props.borderBase && props.borderBase - 18}px #fff;
+		p {
+			// color: red;
+			margin-top: ${props => (props.type === 'utility' ? '5px' : '9px')};
+			font-size: ${props =>
+				props.type && props.type === 'draw'
+					? '20px'
+					: props => (props.type === 'utility' ? '8px' : '9px')};
+		}
+
+		span {
+			position: absolute;
+			bottom: 11px;
+			width: 100%;
+			left: 0;
+			font-size: 9px;
+			color: rgba(244, 244, 244, 0.8);
+		}
+
+		svg {
+			height: 20px;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: ${props => (props.name === 'Water works' ? '6px' : '12px')};
 		}
 	}
 

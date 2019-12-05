@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import Container from './Layout/Container'
 import Card from './Card'
 import { AppContext } from '../App'
-
+import { ReactComponent as Jail } from '../images/jail.svg'
+import { ReactComponent as Electricity } from '../images/flash.svg'
+import { ReactComponent as WaterWorks } from '../images/tap.svg'
+import { ReactComponent as Railway } from '../images/train.svg'
+import { ReactComponent as Airlines } from '../images/airliner.svg'
 interface ICard {
 	type: string
 	color: string
@@ -27,6 +31,22 @@ const Board: React.FC = () => {
 }
 
 const Cards: React.FC = () => {
+	function showIcon(name: string) {
+		switch (name) {
+			case 'Jail':
+				return <Jail />
+			case 'Electricity':
+				return <Electricity />
+			case 'Water works':
+				return <WaterWorks />
+			case 'Railway':
+				return <Railway />
+			case 'Airlines':
+				return <Airlines />
+			default:
+				return null
+		}
+	}
 	return (
 		<AppContext.Consumer>
 			{value =>
@@ -34,6 +54,7 @@ const Cards: React.FC = () => {
 					return (
 						<Card
 							key={i}
+							name={card.name}
 							color={card.color}
 							type_color={card.type_color}
 							type={card.type}
@@ -42,6 +63,7 @@ const Cards: React.FC = () => {
 							{card.property_details && card.type !== 'utility' && (
 								<span>$ {card.property_details.price}</span>
 							)}
+							{showIcon(card.name)}
 						</Card>
 					)
 				})

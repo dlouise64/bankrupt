@@ -39,6 +39,9 @@ const Cards: React.FC = () => {
 							type={card.type}
 							empty={card.type === 'empty' && true}>
 							<p>{card.name}</p>
+							{card.property_details && card.type !== 'utility' && (
+								<span>$ {card.property_details.price}</span>
+							)}
 						</Card>
 					)
 				})
@@ -118,6 +121,6 @@ const Grid = styled.div`
 	@media only screen and (min-width: 1280px) and (min-height: 900px) {
 		grid-gap: 12px;
 	}
-`
+s`
 
 export default Board

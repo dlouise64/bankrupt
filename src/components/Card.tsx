@@ -46,6 +46,15 @@ const CardWrapper = styled.div<IProps>`
 		text-align: center;
 		color: ${props => props.type_color && props.type_color};
 	}
+
+	span {
+		position: absolute;
+		bottom: 43px;
+		width: 100%;
+		left: 0;
+		font-size: 25px;
+		color: rgba(244, 244, 244, 0.8);
+	}
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
 		box-shadow: inset 0 0 0
@@ -54,6 +63,15 @@ const CardWrapper = styled.div<IProps>`
 			margin-top: 10px;
 			font-size: ${props =>
 				props.type && props.type === 'draw' ? '20px' : '6px'};
+		}
+
+		span {
+			position: absolute;
+			bottom: 9px;
+			width: 100%;
+			left: 0;
+			font-size: 7px;
+			color: rgba(244, 244, 244, 0.8);
 		}
 	}
 
@@ -96,6 +114,14 @@ const CardWrapper = styled.div<IProps>`
 			font-size: ${props =>
 				props.type && props.type === 'draw' ? '50px' : '14px'};
 		}
+		span {
+			position: absolute;
+			bottom: 25px;
+			width: 100%;
+			left: 0;
+			font-size: 15px;
+			color: rgba(244, 244, 244, 0.8);
+		}
 	}
 
 	/* Large devices (laptops/desktops, 992px and up) */
@@ -107,6 +133,14 @@ const CardWrapper = styled.div<IProps>`
 			font-size: ${props =>
 				props.type && props.type === 'draw' ? '70px' : '20px'};
 		}
+		span {
+			position: absolute;
+			bottom: 32px;
+			width: 100%;
+			left: 0;
+			font-size: 21px;
+			color: rgba(244, 244, 244, 0.8);
+		}
 	}
 
 	/* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -117,6 +151,14 @@ const CardWrapper = styled.div<IProps>`
 			margin-top: 43px;
 			font-size: ${props =>
 				props.type && props.type === 'draw' ? '90px' : '26px'};
+		}
+		span {
+			position: absolute;
+			bottom: 45px;
+			width: 100%;
+			left: 0;
+			font-size: 25px;
+			color: rgba(244, 244, 244, 0.8);
 		}
 	}
 	@media only screen and (min-width: 1200px) and (min-height: 950px) {

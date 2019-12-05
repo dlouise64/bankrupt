@@ -128,6 +128,26 @@ const BoardWrapper = styled.div`
 	@media only screen and (min-width: 1440px) and (min-height: 900px) {
 		border-radius: 60px;
 	}
+
+	@media only screen and (min-height: 480px) {
+		margin-top: 50%;
+	}
+
+	@media only screen and (min-height: 800px) {
+		margin-top: 60%;
+	}
+
+	// @media only screen and (min-height: 736px) {
+	// 	margin-top: 60%;
+	// }
+
+	// @media only screen and (min-height: 812px) {
+	// 	margin-top: 60%;
+	// }
+
+	// @media only screen and (min-height: 1024px) {
+	// 	margin-top: 60%;
+	// }
 `
 
 const Grid = styled.div`

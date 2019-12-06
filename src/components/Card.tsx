@@ -8,11 +8,14 @@ import styled from 'styled-components'
 
 interface ICardEventWrapper {
 	empty: boolean
+	handlePreviewCard?: any
 }
 const Card: React.FC<ICard> = props => {
 	const { card } = props
 	return (
-		<CardEventWrapper empty={card.type === 'empty'}>
+		<CardEventWrapper
+			empty={card.type === 'empty'}
+			onClick={() => props.handlePreviewCard()}>
 			<CardWrapper card={card} type={card.type}>
 				{card.type === 'place' && (
 					<Tile
@@ -63,7 +66,7 @@ const Card: React.FC<ICard> = props => {
 }
 
 const CardEventWrapper = styled.div<ICardEventWrapper>`
-	z-index: 1;
+	z-index: 2;
 	cursor: ${props => !props.empty && 'pointer'};
 `
 const CardWrapper = styled.div<ICard>`

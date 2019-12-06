@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Container from './Layout/Container'
 import { AppContext } from '../App'
@@ -6,14 +6,29 @@ import ICard from '../interfaces/ICard'
 import Card from './Card'
 import PreviewCard from './PreviewCard'
 
+interface IProps {
+	handlePreviewCard?: any
+	onClick?: any
+}
 const Board: React.FC = () => {
+	const [showPreviewCard, setPreviewCard] = useState(false)
+
+	function handlePreviewCard() {
+		setPreviewCard(!showPreviewCard)
+	}
+
 	return (
 		<>
 			<Container>
 				<BoardWrapper>
+					<button
+						style={{ position: 'absolute', left: 0, zIndex: 2 }}
+						onClick={() => handlePreviewCard()}>
+						test
+					</button>
 					<Grid>
-						<PreviewCard />
-						<Cards />
+						<Cards handlePreviewCard={handlePreviewCard} />
+						{showPreviewCard && <PreviewCard />}
 					</Grid>
 				</BoardWrapper>
 			</Container>
@@ -21,12 +36,18 @@ const Board: React.FC = () => {
 	)
 }
 
-const Cards: React.FC = () => {
+const Cards: React.FC<IProps> = props => {
 	return (
 		<AppContext.Consumer>
 			{value =>
 				value.cards.map((card: ICard, i: number) => {
-					return <Card card={card} key={i} />
+					return (
+						<Card
+							card={card}
+							key={i}
+							handlePreviewCard={props.handlePreviewCard}
+						/>
+					)
 				})
 			}
 		</AppContext.Consumer>

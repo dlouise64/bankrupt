@@ -7,4 +7,6 @@ export default interface ICard {
 	}
 	type_color?: string
 	card: any
+	onClick?: any
+	handlePreviewCard?: any
 }

@@ -31,7 +31,7 @@ const Cards: React.FC = () => {
 
 const BoardWrapper = styled.div`
 	background: #f19e75;
-	width: 50vw;
+	width: 92vw;
 	min-width: 325px;
 	min-height: 294px;
 	padding: 5px;
@@ -41,7 +41,7 @@ const BoardWrapper = styled.div`
 	border-radius: 12px;
 	margin: 1% auto 0;
 	position: absolute;
-   bottom: 18%;
+   bottom: 16%;
    left: 0;
 	right: 0;
 	

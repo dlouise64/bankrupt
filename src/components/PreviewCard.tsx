@@ -50,6 +50,7 @@ const PreviewCard: React.FC = () => (
 
 const PreviewCardWrapper = styled.section`
 	position: absolute;
+	z-index: 0;
 	width: 100%;
 	left: 0;
 `

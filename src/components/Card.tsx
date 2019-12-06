@@ -6,57 +6,66 @@ import Tax from './Tax'
 import ICard from '../interfaces/ICard'
 import styled from 'styled-components'
 
+interface ICardEventWrapper {
+	empty?: boolean
+}
 const Card: React.FC<ICard> = props => {
 	const { card } = props
 	return (
-		<CardWrapper card={card} type={card.type}>
-			{card.type === 'place' && (
-				<Tile
-					card={card}
-					name={card.name}
-					color={card.color}
-					type_color={card.type_color}
-					type={card.type}
-					property_details={card.property_details}
-				/>
-			)}
-			{card.type === 'utility' && (
-				<Utility
-					card={card}
-					name={card.name}
-					color={card.color}
-					type_color={card.type_color}
-					type={card.type}
-					property_details={card.property_details}
-				/>
-			)}
-			{card.type === 'jail' && <Jail />}
-			{card.type === 'draw' && (
-				<Tile
-					card={card}
-					name={card.name}
-					color={card.color}
-					type_color={card.type_color}
-					type={card.type}
-					property_details={card.property_details}
-				/>
-			)}
-			{card.type === 'text' && (
-				<Tile
-					card={card}
-					name={card.name}
-					color={card.color}
-					type_color={card.type_color}
-					type={card.type}
-					property_details={card.property_details}
-				/>
-			)}
-			{card.type === 'start' && <Start />}
-			{card.type === 'tax' && <Tax />}
-		</CardWrapper>
+		<CardEventWrapper empty={card.type === 'empty'}>
+			<CardWrapper card={card} type={card.type}>
+				{card.type === 'place' && (
+					<Tile
+						card={card}
+						name={card.name}
+						color={card.color}
+						type_color={card.type_color}
+						type={card.type}
+						property_details={card.property_details}
+					/>
+				)}
+				{card.type === 'utility' && (
+					<Utility
+						card={card}
+						name={card.name}
+						color={card.color}
+						type_color={card.type_color}
+						type={card.type}
+						property_details={card.property_details}
+					/>
+				)}
+				{card.type === 'jail' && <Jail />}
+				{card.type === 'draw' && (
+					<Tile
+						card={card}
+						name={card.name}
+						color={card.color}
+						type_color={card.type_color}
+						type={card.type}
+						property_details={card.property_details}
+					/>
+				)}
+				{card.type === 'text' && (
+					<Tile
+						card={card}
+						name={card.name}
+						color={card.color}
+						type_color={card.type_color}
+						type={card.type}
+						property_details={card.property_details}
+					/>
+				)}
+				{card.type === 'start' && <Start />}
+				{card.type === 'tax' && <Tax />}
+			</CardWrapper>
+		</CardEventWrapper>
 	)
 }
 
+const CardEventWrapper = styled.div<ICardEventWrapper>`
+	z-index: 1;
+	cursor: ${props => !props.empty && 'pointer'};
+`
 const CardWrapper = styled.div<ICard>`
 	svg {
 		width: 100%;

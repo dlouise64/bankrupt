@@ -5,7 +5,7 @@ const PreviewCard: React.FC = () => (
 	<PreviewCardWrapper>
 		<svg viewBox="0 0 543 532">
 			<defs>
-				<rect id="a1" width="59%" height="59%" x="21%" y="20.5%" rx="20" />
+				<rect id="a1" width="59%" height="59%" x="21%" y="20.4%" rx="20" />
 				<filter
 					id="b1"
 					width="200%"

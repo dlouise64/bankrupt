@@ -17,12 +17,12 @@ const Board: React.FC = () => {
 	)
 }
 
-const Cards: React.FC<ICard> = () => {
+const Cards: React.FC = () => {
 	return (
 		<AppContext.Consumer>
 			{value =>
 				value.cards.map((card: ICard, i: number) => {
-					return <Card key={i} card={card} />
+					return <Card card={card} key={i} />
 				})
 			}
 		</AppContext.Consumer>

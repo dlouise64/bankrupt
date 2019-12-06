@@ -6,5 +6,5 @@ export default interface ICard {
 		price?: number
 	}
 	type_color?: string
-	card?: object
+	card: any
 }

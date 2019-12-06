@@ -7,7 +7,7 @@ import ICard from '../interfaces/ICard'
 import styled from 'styled-components'
 
 interface ICardEventWrapper {
-	empty?: boolean
+	empty: boolean
 }
 const Card: React.FC<ICard> = props => {
 	const { card } = props

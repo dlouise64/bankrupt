@@ -1,491 +1,162 @@
 import React from 'react'
+import Utility from './Utility'
+import Jail from './Jail'
+import Start from './Start'
+import Tax from './Tax'
+import ICard from '../interfaces/ICard'
 import styled from 'styled-components'
 
-interface IProps {
-	empty?: boolean
-	borderBase?: number
-	color?: string
-	type_color?: string
-	type: string
-	name?: string
-}
-const Card: React.FC<IProps> = props =>
-	props.empty ? (
-		<EmptyCard />
-	) : (
-		<CardWrapper
-			color={props.color}
-			type_color={props.type_color}
-			type={props.type}
-			borderBase={22}
-			name={props.name}>
-			{props.children}
-		</CardWrapper>
-	)
+const Card: React.FC<ICard> = card => (
+	<CardWrapper type={card.type}>
+		{card.type === 'place' && (
+			<Tile
+				name={card.name}
+				color={card.color}
+				type_color={card.type_color}
+				type={card.type}
+				property_details={card.property_details}
+			/>
+		)}
+		{card.type === 'utility' && (
+			<Utility
+				name={card.name}
+				color={card.color}
+				type_color={card.type_color}
+				type={card.type}
+				property_details={card.property_details}
+			/>
+		)}
+		{card.type === 'jail' && <Jail />}
+		{card.type === 'draw' && (
+			<Tile
+				name={card.name}
+				color={card.color}
+				type_color={card.type_color}
+				type={card.type}
+				property_details={card.property_details}
+			/>
+		)}
+		{card.type === 'text' && (
+			<Tile
+				name={card.name}
+				color={card.color}
+				type_color={card.type_color}
+				type={card.type}
+				property_details={card.property_details}
+			/>
+		)}
+		{card.type === 'start' && <Start />}
+		{card.type === 'tax' && <Tax />}
+	</CardWrapper>
+)
 
-const EmptyCard = styled.div`
-	background: transparent;
-`
-
-const CardWrapper = styled.div<IProps>`
-	background: ${props => props.color};
-	border-radius: 16%;
-	width: 100%;
-	height: 0;
-	padding-bottom: 96%;
-	position: relative;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: white;
-
-	p {
-		font-size: 20px;
-		width: 100%;
-		left: 0;
-		top: 1px;
-		position: absolute;
-		text-align: center;
-		color: ${props => props.type_color && props.type_color};
-	}
-
-	span {
-		position: absolute;
-		bottom: 43px;
-		width: 100%;
-		left: 0;
-		font-size: 25px;
-		color: rgba(244, 244, 244, 0.8);
-	}
-
-	box-shadow: inset 0 0 0
-		${props => props.borderBase && props.borderBase - 18}px #fff;
-	p {
-		margin-top: ${props =>
-			props.type === 'utility'
-				? props.name === 'Water works' && '.9vh'
-				: '1.2vh'};
-		font-size: ${props =>
-			props.type && props.type === 'draw'
-				? '5.8vh'
-				: props => (props.type === 'utility' ? '1.5vw' : '1.5vw')};
-	}
-
-	span {
-		position: absolute;
-		bottom: 1.5vh;
-		width: 100%;
-		left: 0;
-		font-size: 2vw;
-		color: rgba(244, 244, 244, 0.8);
-	}
-
+const CardWrapper = styled.div<ICard>`
 	svg {
-		height: 3.6vh;
-		position: absolute;
 		width: 100%;
-		left: 0;
-		bottom: ${props => (props.name === 'Water works' ? '1.6vh' : '2.7vh')};
-	}
+		display: ${props => (props.type === 'empty' ? 'none' : 'block')};
 
-	@media only screen and (min-width: 320px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.9vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '4.2vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
+		g {
+			text {
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
 		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 3.6vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '1.7vh')};
-		}
-	}
-
-	// Iphone 4
-	@media only screen and (min-width: 320px) and (min-height: 480px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.9vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '5.2vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 3.6vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '1.7vh')};
-		}
-	}
-
-	// Iphone 5
-	@media only screen and (min-width: 320px) and (min-height: 568px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.9vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '4.2vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 2.9vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '1.8vh')};
-		}
-	}
-
-	@media only screen and (min-width: 360px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.9vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '4.2vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 3vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '1.7vh')};
-		}
-	}
-
-	// IphoneX
-	@media only screen and (min-width: 375px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.5vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '4vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 3.2vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '.9vh' : '1.4vh')};
-		}
-	}
-
-	// IphoneX
-	@media only screen and (min-width: 375px) and (min-height: 812px) {
-		letter-spacing: 0;
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '.5vh'
-					: '1.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '3.3vh'
-					: props => (props.type === 'utility' ? '2vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 1.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 2.5vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '.9vh' : '1.4vh')};
-		}
-	}
-
-	@media (min-width: 1250px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 12px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '2.5vh'
-					: '5.2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '15vh'
-					: props => (props.type === 'utility' ? '1.9vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 5.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 11.5vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '4vh' : '6.5vh')};
-		}
-	}
-
-	@media only screen and (device-width: 1440px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 8px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '2vh'
-					: '3vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '13vh'
-					: props => (props.type === 'utility' ? '1.9vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 4vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 9vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '3vh' : '5.5vh')};
-		}
-	}
-
-	@media only screen and (device-width: 1280px) and (device-height: 800px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 8px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '2vh'
-					: '3vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '10vh'
-					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 4vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 9vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '3vh' : '5.5vh')};
-		}
-	}
-
-	@media only screen and (device-width: 1280px) and (device-height: 950px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 8px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '2vh'
-					: '3vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '10vh'
-					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 4vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 8vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '3vh' : '4vh')};
-		}
-	}
-
-	// Ipad
-	@media only screen and (device-width: 768px) and (device-height: 1024px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 8px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '1vh'
-					: '2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '5vh'
-					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 2.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 4.5vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '2vh')};
-		}
-	}
-
-	// Ipad Pro
-	@media only screen and (device-width: 1024px) and (device-height: 1366px) {
-		letter-spacing: 1px;
-		box-shadow: inset 0 0 0 12px #fff;
-		p {
-			margin-top: ${props =>
-				props.type === 'utility'
-					? props.name === 'Water works' && '1vh'
-					: '2vh'};
-			font-size: ${props =>
-				props.type && props.type === 'draw'
-					? '5vh'
-					: props => (props.type === 'utility' ? '1.8vw' : '2vw')};
-		}
-
-		span {
-			position: absolute;
-			bottom: 2.5vh;
-			width: 100%;
-			left: 0;
-			font-size: 2vw;
-			color: rgba(244, 244, 244, 0.8);
-		}
-
-		svg {
-			height: 4.5vh;
-			position: absolute;
-			width: 100%;
-			left: 0;
-			bottom: ${props => (props.name === 'Water works' ? '1vh' : '2vh')};
-		}
-	}
-
-	h2 {
-		color: ${props => props.type_color};
 	}
 `
+
+const Tile: React.FC<ICard> = props => {
+	return (
+		<svg width="100%" viewBox="0 0 150 147">
+			<defs>
+				<rect id="a" width="142" height="138.296" rx="21" />
+				<filter
+					id="b"
+					width="200%"
+					height="200%"
+					x="-50%"
+					y="-50%"
+					filterUnits="objectBoundingBox">
+					<feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1" />
+					<feGaussianBlur
+						stdDeviation="2"
+						in="shadowOffsetOuter1"
+						result="shadowBlurOuter1"
+					/>
+					<feComposite
+						in="shadowBlurOuter1"
+						in2="SourceAlpha"
+						operator="out"
+						result="shadowBlurOuter1"
+					/>
+					<feColorMatrix
+						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
+						in="shadowBlurOuter1"
+					/>
+				</filter>
+				<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
+					<use href="#a" />
+				</mask>
+			</defs>
+			<g fill="none" fillRule="evenodd" transform="translate(4 2)">
+				<use fill="black" filter="url(#b)" href="#a" />
+				<use
+					fill={props.color}
+					stroke="#FFFFFF"
+					strokeWidth="14"
+					mask="url(#c)"
+					href="#a"
+				/>
+				<text
+					fill={
+						props.type === 'utility'
+							? props.type_color
+							: props.name === '?'
+							? props.type_color
+							: props.name === 'Tax'
+							? props.type_color
+							: '#fff'
+					}
+					fontFamily="ArchivoBlack-Regular, Archivo Black"
+					fontSize={
+						props.name === 'Water works'
+							? 12
+							: props.name === 'Electricity'
+							? 14
+							: props.name === '?'
+							? 55
+							: 18
+					}
+					fontWeight="700"
+					textAnchor="middle"
+					alignmentBaseline="central">
+					<tspan x="48%" y={props.name === '?' ? '85' : '37.583'}>
+						{props.name}
+					</tspan>
+				</text>
+				{props.type === 'place' && (
+					<text
+						fill="#fff"
+						fontFamily="ArchivoBlack-Regular, Archivo Black"
+						fontSize={
+							props.name === 'Water works'
+								? 12
+								: props.name === 'Electricity'
+								? 14
+								: props.name === '?'
+								? 55
+								: 18
+						}
+						fontWeight="700"
+						textAnchor="middle"
+						alignmentBaseline="central">
+						<tspan x="48%" y={props.name === '?' ? '85' : '110'}>
+							${props.property_details && props.property_details.price}
+						</tspan>
+					</text>
+				)}
+			</g>
+		</svg>
+	)
+}
 
 export default Card

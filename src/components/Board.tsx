@@ -1,19 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from './Layout/Container'
-import Card from './Card'
 import { AppContext } from '../App'
 import { ReactComponent as Jail } from '../images/jail.svg'
 import { ReactComponent as Electricity } from '../images/flash.svg'
 import { ReactComponent as WaterWorks } from '../images/tap.svg'
 import { ReactComponent as Railway } from '../images/train.svg'
 import { ReactComponent as Airlines } from '../images/airliner.svg'
+
 interface ICard {
-	type: string
-	color: string
-	name: string
-	property_details: {
-		price: number
+	type?: string
+	color?: string
+	name?: string
+	property_details?: {
+		price?: number
 	}
 	type_color?: string
 }
@@ -52,19 +52,15 @@ const Cards: React.FC = () => {
 			{value =>
 				value.cards.map((card: ICard, i: number) => {
 					return (
-						<Card
-							key={i}
-							name={card.name}
-							color={card.color}
-							type_color={card.type_color}
-							type={card.type}
-							empty={card.type === 'empty' && true}>
-							<p>{card.name}</p>
-							{card.property_details && card.type !== 'utility' && (
-								<span>$ {card.property_details.price}</span>
-							)}
-							{showIcon(card.name)}
-						</Card>
+						<CardWrapper key={i} type={card.type}>
+							<Tile
+								name={card.name}
+								color={card.color}
+								type_color={card.type_color}
+								type={card.type}
+								property_details={card.property_details}
+							/>
+						</CardWrapper>
 					)
 				})
 			}
@@ -72,118 +68,154 @@ const Cards: React.FC = () => {
 	)
 }
 
+const Tile: React.FC<ICard> = props => {
+	return (
+		<svg width="100%" viewBox="0 0 150 147">
+			<defs>
+				<rect id="a" width="142" height="138.296" rx="21" />
+				<filter
+					id="b"
+					width="200%"
+					height="200%"
+					x="-50%"
+					y="-50%"
+					filterUnits="objectBoundingBox">
+					<feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1" />
+					<feGaussianBlur
+						stdDeviation="2"
+						in="shadowOffsetOuter1"
+						result="shadowBlurOuter1"
+					/>
+					<feComposite
+						in="shadowBlurOuter1"
+						in2="SourceAlpha"
+						operator="out"
+						result="shadowBlurOuter1"
+					/>
+					<feColorMatrix
+						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
+						in="shadowBlurOuter1"
+					/>
+				</filter>
+				<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
+					<use href="#a" />
+				</mask>
+			</defs>
+			<g fill="none" fillRule="evenodd" transform="translate(4 2)">
+				<use fill="black" filter="url(#b)" href="#a" />
+				<use
+					fill={props.color}
+					stroke="#FFFFFF"
+					strokeWidth="14"
+					mask="url(#c)"
+					href="#a"
+				/>
+				<text
+					fill={
+						props.type === 'utility'
+							? props.type_color
+							: props.name === '?'
+							? props.type_color
+							: props.name === 'Tax'
+							? props.type_color
+							: '#fff'
+					}
+					fontFamily="ArchivoBlack-Regular, Archivo Black"
+					fontSize={
+						props.name === 'Water works'
+							? 12
+							: props.name === 'Electricity'
+							? 14
+							: props.name === '?'
+							? 55
+							: 18
+					}
+					fontWeight="700"
+					// fill="red"
+					textAnchor="middle"
+					alignmentBaseline="central">
+					<tspan x="48%" y={props.name === '?' ? '85' : '37.583'}>
+						{props.name}
+					</tspan>
+				</text>
+				{props.type === 'place' && (
+					<text
+						fill="#fff"
+						fontFamily="ArchivoBlack-Regular, Archivo Black"
+						fontSize={
+							props.name === 'Water works'
+								? 12
+								: props.name === 'Electricity'
+								? 14
+								: props.name === '?'
+								? 55
+								: 18
+						}
+						fontWeight="700"
+						// fill="red"
+						textAnchor="middle"
+						alignmentBaseline="central">
+						<tspan x="48%" y={props.name === '?' ? '85' : '110'}>
+							${props.property_details && props.property_details.price}
+						</tspan>
+					</text>
+				)}
+			</g>
+		</svg>
+	)
+}
 const BoardWrapper = styled.div`
-	padding: 1.5%;
-	border-radius: 0.625rem;
+	// padding: 1.5%;
+	// border-radius: 0.625rem;
+	// background: #f19e75;
+	// border-radius: 20px;
+	// position: absolute;
+	// bottom: 6em;
+	// left: 0;
+	// right: 0;
+	// height: auto;
+
+	position: sticky;
 	background: #f19e75;
-	border-radius: 20px;
-	position: absolute;
-	bottom: 6em;
-	left: 0;
-	right: 0;
-	height: auto;
-
-	/* Extra small devices (phones, 600px and down) */
-	@media only screen and (max-width: 600px) {
-		border-radius: 11px;
-	}
-
-	/* Extra small devices (phones, 600px and down) */
-	@media only screen and (min-width: 414px) and (min-height: 736px) {
-		border-radius: 14px;
-	}
-
-	@media only screen and (min-width: 375px) and (min-height: 812px) {
-		border-radius: 14px;
-	}
-
-	/* Small devices (portrait tablets and large phones, 600px and up) */
-	@media only screen and (min-width: 600px) {
-		border-radius: 25px;
-	}
-
-	/* Medium devices (landscape tablets, 768px and up) */
-	@media only screen and (min-width: 768px) {
-		border-radius: 25px;
-	}
-
-	/* Large devices (laptops/desktops, 992px and up) */
-	@media only screen and (min-width: 992px) {
-		border-radius: 32px;
-	}
-
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1200px) {
-		border-radius: 44px;
-	}
-	@media only screen and (min-width: 1200px) and (min-height: 950px) {
-		border-radius: 44px;
-	}
-
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1440px) {
-		border-radius: 45px;
-	}
-
-	@media only screen and (min-width: 1200px) and (min-height: 900px) {
-		border-radius: 45px;
-	}
-
-	@media only screen and (min-width: 1440px) and (min-height: 900px) {
-		border-radius: 60px;
-	}
-
-	@media only screen and (device-width: 1336px) and (min-height: 657px) {
-		bottom: -18.7em;
-		transform: scale(0.45);
-	}
-
-	@media only screen and (device-width: 1440px) {
-		bottom: -9.5em;
-		transform: scale(0.55);
-	}
-
-	@media only screen and (device-width: 1280px) and (device-height: 800px) {
-		bottom: -8em;
-		transform: scale(0.55);
-	}
-
-	@media only screen and (device-width: 1280px) and (device-height: 950px) {
-		bottom: -5em;
-		transform: scale(0.55);
-	}
-
-	// Ipad
-	@media only screen and (device-width: 768px) and (device-height: 1024px) {
-		bottom: 9em;
-		margin: 12px;
-	}
-
-	// Ipad Pro
-	@media only screen and (device-width: 1024px) and (device-height: 1366px) {
-		bottom: 13em;
-		margin: 12px;
-	}
-
-	@media (min-width: 1250px) {
-		bottom: -17.5em;
-		transform: scale(0.37);
-	}
+	// top: 1em;
+	width: 50vw;
+	min-width: 300px;
+	min-height: 294px;
+	padding: 5px;
+	max-width: calc(100vh - 2em);
+	max-height: calc(100vh - 2em);
+	overflow: hidden;
+	// border: 10px solid #6d5720;
+	border-radius: 12px;
+	margin: 20px auto;
 `
 
+const CardWrapper = styled.div<ICard>`
+	svg {
+		width: 100%;
+		display: ${props => (props.type === 'empty' ? 'none' : 'block')};
+
+		g {
+			text {
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+		}
+	}
+`
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
 	grid-template-rows: repeat(6, minmax(auto, 1fr));
-	grid-gap: 2px;
+	// grid-gap: 2px;
 
-	@media only screen and (min-width: 1280px) and (min-height: 600px) {
-		grid-gap: 10px;
-	}
+	// @media only screen and (min-width: 1280px) and (min-height: 600px) {
+	// 	grid-gap: 10px;
+	// }
 
-	@media only screen and (min-width: 1280px) and (min-height: 900px) {
-		grid-gap: 12px;
-	}
+	// @media only screen and (min-width: 1280px) and (min-height: 900px) {
+	// 	grid-gap: 12px;
+	// }
 `
 
 export default Board

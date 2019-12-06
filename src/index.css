@@ -5,6 +5,7 @@
 	font-weight: 900;
 	/* box-sizing: border-box; */
 	/* border: 1px solid red; */
+	/* border: 1px solid red; */
 }
 html {
 	height: 100%;
@@ -19,17 +20,6 @@ html {
 }
 body h1 {
 	display: none;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-	body .main {
-		display: none;
-	}
-
-	body > h1 {
-		display: block;
-		color: #fff;
-	}
 }
 
 body {
@@ -47,4 +37,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
+}
+
+.main {
+	min-height: 100vh;
+	padding: 0;
 }

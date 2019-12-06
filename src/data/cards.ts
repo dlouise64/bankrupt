@@ -23,7 +23,7 @@ const cards = [
 		position: 6
 	},
 	{
-		type: 'text',
+		type: 'tax',
 		name: 'Tax',
 		color: colour.white,
 		type_color: colour.purple,
@@ -58,7 +58,7 @@ const cards = [
 	},
 
 	{
-		type: 'text',
+		type: 'jail',
 		name: 'Jail',
 		position: 10,
 		color: colour.white,
@@ -166,7 +166,7 @@ const cards = [
 		type: 'empty'
 	},
 	{
-		type: 'text',
+		type: 'tax',
 		name: 'Tax',
 		color: colour.white,
 		type_color: colour.purple,
@@ -212,7 +212,7 @@ const cards = [
 		position: 14
 	},
 	{
-		type: 'text',
+		type: 'start',
 		name: 'Start',
 		position: 0,
 		color: colour.white,

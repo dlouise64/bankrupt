@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import Container from './Layout/Container'
 import { AppContext } from '../App'
 import Utility from './Utility'
+import Jail from './Jail'
+import Start from './Start'
+import Tax from './Tax'
 import ICard from '../interfaces/ICard'
 
 const Board: React.FC = () => {
@@ -24,7 +27,7 @@ const Cards: React.FC = () => {
 				value.cards.map((card: ICard, i: number) => {
 					return (
 						<CardWrapper key={i} type={card.type}>
-							{card.type !== 'utility' && (
+							{card.type === 'place' && (
 								<Tile
 									name={card.name}
 									color={card.color}
@@ -42,6 +45,23 @@ const Cards: React.FC = () => {
 									property_details={card.property_details}
 								/>
 							)}
+							{card.type === 'jail' && <Jail />}
+							{card.type === 'draw' && <Tile
+									name={card.name}
+									color={card.color}
+									type_color={card.type_color}
+									type={card.type}
+									property_details={card.property_details}
+								/>}
+								{card.type === 'text' && <Tile
+									name={card.name}
+									color={card.color}
+									type_color={card.type_color}
+									type={card.type}
+									property_details={card.property_details}
+								/>}
+								{card.type === 'start' && <Start />}
+								{card.type === 'tax' && <Tax />}
 						</CardWrapper>
 					)
 				})
@@ -113,7 +133,6 @@ const Tile: React.FC<ICard> = props => {
 							: 18
 					}
 					fontWeight="700"
-					// fill="red"
 					textAnchor="middle"
 					alignmentBaseline="central">
 					<tspan x="48%" y={props.name === '?' ? '85' : '37.583'}>
@@ -134,7 +153,6 @@ const Tile: React.FC<ICard> = props => {
 								: 18
 						}
 						fontWeight="700"
-						// fill="red"
 						textAnchor="middle"
 						alignmentBaseline="central">
 						<tspan x="48%" y={props.name === '?' ? '85' : '110'}>

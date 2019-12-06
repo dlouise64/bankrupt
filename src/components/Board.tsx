@@ -188,6 +188,16 @@ const BoardWrapper = styled.div`
 	// border: 10px solid #6d5720;
 	border-radius: 12px;
 	margin: 1% auto 0;
+
+	position: absolute;
+   bottom: 10%;
+   left: 0;
+	right: 0;
+	
+	@media (min-width: 765px) {
+		position: static;
+	}
+}
 `
 
 const CardWrapper = styled.div<ICard>`

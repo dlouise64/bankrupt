@@ -190,7 +190,7 @@ const BoardWrapper = styled.div`
 	margin: 1% auto 0;
 
 	position: absolute;
-   bottom: 10%;
+   bottom: 20%;
    left: 0;
 	right: 0;
 	

@@ -4,16 +4,20 @@ import Container from './Layout/Container'
 import { AppContext } from '../App'
 import ICard from '../interfaces/ICard'
 import Card from './Card'
+import PreviewCard from './PreviewCard'
 
 const Board: React.FC = () => {
 	return (
-		<Container>
-			<BoardWrapper>
-				<Grid>
-					<Cards />
-				</Grid>
-			</BoardWrapper>
-		</Container>
+		<>
+			<Container>
+				<BoardWrapper>
+					<Grid>
+						<PreviewCard />
+						<Cards />
+					</Grid>
+				</BoardWrapper>
+			</Container>
+		</>
 	)
 }
 
@@ -52,6 +56,7 @@ const BoardWrapper = styled.div`
 `
 
 const Grid = styled.div`
+	position: relative;
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
 	grid-template-rows: repeat(6, minmax(auto, 1fr));

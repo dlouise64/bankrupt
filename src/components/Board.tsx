@@ -179,7 +179,7 @@ const BoardWrapper = styled.div`
 	background: #f19e75;
 	// top: 1em;
 	width: 50vw;
-	min-width: 300px;
+	min-width: 325px;
 	min-height: 294px;
 	padding: 5px;
 	max-width: calc(100vh - 2em);
@@ -187,7 +187,7 @@ const BoardWrapper = styled.div`
 	overflow: hidden;
 	// border: 10px solid #6d5720;
 	border-radius: 12px;
-	margin: 20px auto;
+	margin: 1% auto 0;
 `
 
 const CardWrapper = styled.div<ICard>`

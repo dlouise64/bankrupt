@@ -165,19 +165,7 @@ const Tile: React.FC<ICard> = props => {
 	)
 }
 const BoardWrapper = styled.div`
-	// padding: 1.5%;
-	// border-radius: 0.625rem;
-	// background: #f19e75;
-	// border-radius: 20px;
-	// position: absolute;
-	// bottom: 6em;
-	// left: 0;
-	// right: 0;
-	// height: auto;
-
-	position: sticky;
 	background: #f19e75;
-	// top: 1em;
 	width: 50vw;
 	min-width: 325px;
 	min-height: 294px;
@@ -185,12 +173,10 @@ const BoardWrapper = styled.div`
 	max-width: calc(100vh - 2em);
 	max-height: calc(100vh - 2em);
 	overflow: hidden;
-	// border: 10px solid #6d5720;
 	border-radius: 12px;
 	margin: 1% auto 0;
-
 	position: absolute;
-   bottom: 20%;
+   bottom: 18%;
    left: 0;
 	right: 0;
 	
@@ -217,15 +203,6 @@ const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(6, minmax(auto, 1fr));
 	grid-template-rows: repeat(6, minmax(auto, 1fr));
-	// grid-gap: 2px;
-
-	// @media only screen and (min-width: 1280px) and (min-height: 600px) {
-	// 	grid-gap: 10px;
-	// }
-
-	// @media only screen and (min-width: 1280px) and (min-height: 900px) {
-	// 	grid-gap: 12px;
-	// }
 `
 
 export default Board

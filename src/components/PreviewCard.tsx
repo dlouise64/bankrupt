@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PreviewCard: React.FC = () => (
+interface IPreviewCard {
+	card?: {
+		color?: string
+	}
+}
+const PreviewCard: React.FC<IPreviewCard> = props => (
 	<PreviewCardWrapper>
-		<svg viewBox="0 0 543 532">
+		{console.log('here', props.card && props.card.color)}
+		<svg viewBox="-175 -175 893 842">
 			<defs>
-				<rect id="a1" width="59%" height="59%" x="21%" y="20.4%" rx="20" />
+				<rect id="a1" width="535" height="519" rx="30" />
 				<filter
-					id="b1"
+					id="c1"
 					width="200%"
 					height="200%"
 					x="-50%"
@@ -30,18 +36,29 @@ const PreviewCard: React.FC = () => (
 						in="shadowBlurOuter1"
 					/>
 				</filter>
-				<mask id="c1" width="535" height="524" x="0" y="0" fill="white">
+				<mask id="d1" width="535" height="524" x="0" y="0" fill="white">
 					<use href="#a1" />
 				</mask>
+				<rect id="b1" width="486" height="81" x="28" y="30" rx="20" />
+				<mask id="e1" width="486" height="81" x="0" y="0" fill="white">
+					<use href="#b1" />
+				</mask>
 			</defs>
-			<g fill="none" fillRule="evenodd">
-				<use fill="black" filter="url(#b1)" href="#a1" />
+			<g fill="none" fill-rule="evenodd" transform="translate(4 2)">
+				<use fill="black" filter="url(#c1)" href="#a1" />
 				<use
 					fill="#FFFFFF"
 					stroke="#FFFFFF"
-					strokeWidth="2"
-					mask="url(#c1)"
+					stroke-width="2"
+					mask="url(#d1)"
 					href="#a1"
+				/>
+				<use
+					fill={props.card && props.card.color}
+					stroke={props.card && props.card.color}
+					stroke-width="2"
+					mask="url(#e1)"
+					href="#b1"
 				/>
 			</g>
 		</svg>

@@ -15,7 +15,7 @@ const Card: React.FC<ICard> = props => {
 	return (
 		<CardEventWrapper
 			empty={card.type === 'empty'}
-			onClick={() => props.handlePreviewCard()}>
+			onClick={() => props.handlePreviewCard(props.card)}>
 			<CardWrapper card={card} type={card.type}>
 				{card.type === 'place' && (
 					<Tile

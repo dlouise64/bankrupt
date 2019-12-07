@@ -18,8 +18,10 @@ interface Stuff {
 }
 const Board: React.FC<Stuff> = () => {
 	const [showPreviewCard, setPreviewCard] = useState(false)
+	const [clickedCard, setClickedCard] = useState({})
 
-	function handlePreviewCard() {
+	function handlePreviewCard(card: object) {
+		setClickedCard(card)
 		setPreviewCard(!showPreviewCard)
 		const show = document.getElementById('show')
 		if (
@@ -36,19 +38,10 @@ const Board: React.FC<Stuff> = () => {
 		<>
 			<Container>
 				<BoardWrapper>
-					<button
-						style={{
-							position: 'absolute',
-							left: 0,
-							zIndex: 2
-						}}
-						onClick={() => handlePreviewCard()}>
-						test
-					</button>
 					<Grid>
 						<Cards handlePreviewCard={handlePreviewCard} />
 						<div id="show" className="hidden">
-							<PreviewCard />
+							<PreviewCard card={clickedCard} />
 						</div>
 					</Grid>
 				</BoardWrapper>

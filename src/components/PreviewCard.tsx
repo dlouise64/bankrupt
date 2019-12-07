@@ -561,15 +561,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(92 252)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#yOne)"
 								href="#fOne"
 							/>
 							<use fill="black" filter="url(#z)" href="#gOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#AOne)"
@@ -578,15 +578,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(219 252)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#BOne)"
 								href="#hOne"
 							/>
 							<use fill="black" filter="url(#C)" href="#iOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#DOne)"
@@ -595,15 +595,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(276 252)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#EOne)"
 								href="#jOne"
 							/>
 							<use fill="black" filter="url(#F)" href="#kOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#GOne)"
@@ -612,15 +612,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(372 252)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#HOne)"
 								href="#lOne"
 							/>
 							<use fill="black" filter="url(#IOne)" href="#mOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#JOne)"
@@ -629,15 +629,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(423 252)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#KOne)"
 								href="#nOne"
 							/>
 							<use fill="black" filter="url(#LOne)" href="#oOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#MOne)"
@@ -646,15 +646,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						</g>
 						<g transform="translate(398 254)">
 							<use
-								fill="#7ED321"
-								stroke="#7ED321"
+								fill="#6DB51F"
+								stroke="#6DB51F"
 								stroke-width="2"
 								mask="url(#NOne)"
 								href="#pOne"
 							/>
 							<use fill="black" filter="url(#OOne)" href="#qOne" />
 							<use
-								fill="#7ED321"
+								fill="#6DB51F"
 								stroke="#70AA30"
 								stroke-width="2"
 								mask="url(#POne)"

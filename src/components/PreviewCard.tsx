@@ -35,6 +35,10 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 				<mask id="d1" width="486" height="81" x="0" y="0" fill="white">
 					<use href="#a1" />
 				</mask>
+				<rect id="ba" width="486" height="46" x="28" y="170" rx="8" />
+				<mask id="fa" width="486" height="46" x="0" y="0" fill="white">
+					<use href="#ba" />
+				</mask>
 			</defs>
 			<g fill="none" fill-rule="evenodd" transform="translate(4 2)">
 				<use fill="black" filter="url(#b1)" href="#c1" />
@@ -59,6 +63,69 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						{props.card && props.card.name && props.card.name.toUpperCase()}
 					</tspan>
 				</text>
+				<use
+					fill="#EBEBEB"
+					stroke="#EBEBEB"
+					stroke-width="2"
+					mask="url(#fa)"
+					href="#ba"
+				/>
+				<rect width="486" height="46" x="28" y="138" rx="8" />
+				<text
+					fill="#494949"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="62.504" y="158">
+						Price
+					</tspan>
+				</text>
+				<text
+					fill="#494949"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="415.484" y="158">
+						$ 180
+					</tspan>
+				</text>
+				<text
+					fill="#494949"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="62.502" y="247">
+						Mortgage
+					</tspan>
+				</text>
+				<text
+					fill="#494949"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="414.484" y="247">
+						$ 210
+					</tspan>
+				</text>
+				<text
+					fill="#353535"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="62.832" y="202">
+						Rent
+					</tspan>
+				</text>
+				<text
+					fill="#353535"
+					font-family="ArchivoBlack-Regular, Archivo Black"
+					font-size="24"
+					font-weight="700">
+					<tspan x="428" y="202">
+						$ 22
+					</tspan>
+				</text>
+				<path stroke="#979797" />
 			</g>
 		</svg>
 	</PreviewCardWrapper>

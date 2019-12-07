@@ -7,7 +7,8 @@ const cards = [
 		color: colour.white,
 		type_color: colour.purple,
 		description: 'Draw a Chance card',
-		position: 5
+		position: 5,
+		draw_name: 'Chance'
 	},
 	{
 		type: 'place',
@@ -62,7 +63,8 @@ const cards = [
 		name: 'Jail',
 		position: 10,
 		color: colour.white,
-		type_color: colour.purple
+		type_color: colour.purple,
+		description: 'Go to Jail'
 	},
 	{
 		type: 'utility',
@@ -278,7 +280,8 @@ const cards = [
 		color: colour.white,
 		type_color: colour.purple,
 		description: 'Draw a Community card',
-		position: 15
+		position: 15,
+		draw_name: 'Community'
 	}
 ]
 

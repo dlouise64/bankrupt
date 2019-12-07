@@ -14,22 +14,29 @@ interface IProps {
 interface Stuff {
 	class?: any
 	style?: any
+	type?: any
 }
 const Board: React.FC<Stuff> = () => {
 	const [showPreviewCard, setPreviewCard] = useState(false)
 	const [clickedCard, setClickedCard] = useState({})
 
-	function handlePreviewCard(card: object) {
-		setClickedCard(card)
-		setPreviewCard(!showPreviewCard)
-		const show = document.getElementById('show')
+	function handlePreviewCard(card: { type: string; name: string }) {
 		if (
-			(show && show.getAttribute('class') === 'hidden') ||
-			(show && show.getAttribute('class') === 'hidden fade')
+			card.type !== 'empty' &&
+			card.name !== 'Start' &&
+			card.name !== 'Jail'
 		) {
-			show && show.setAttribute('class', 'show')
-		} else {
-			show && show.setAttribute('class', 'hidden fade')
+			setClickedCard(card)
+			setPreviewCard(!showPreviewCard)
+			const show = document.getElementById('show')
+			if (
+				(show && show.getAttribute('class') === 'hidden') ||
+				(show && show.getAttribute('class') === 'hidden fade')
+			) {
+				show && show.setAttribute('class', 'show')
+			} else {
+				show && show.setAttribute('class', 'hidden fade')
+			}
 		}
 	}
 

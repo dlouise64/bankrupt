@@ -5,11 +5,16 @@ interface IPreviewCard {
 	card?: {
 		color?: string
 		name?: string
+		property_details?: {
+			price?: number
+			rent?: number
+			mortgage?: number
+		}
 	}
 }
 const PreviewCard: React.FC<IPreviewCard> = props => (
 	<PreviewCardWrapper>
-		{console.log('here', props.card && props.card.color)}
+		{console.log('here', props.card && props.card)}
 		<svg viewBox="-175 -175 893 842">
 			<defs>
 				<rect id="c1" width="535" height="524" rx="30" />
@@ -63,69 +68,82 @@ const PreviewCard: React.FC<IPreviewCard> = props => (
 						{props.card && props.card.name && props.card.name.toUpperCase()}
 					</tspan>
 				</text>
-				<use
-					fill="#EBEBEB"
-					stroke="#EBEBEB"
-					stroke-width="2"
-					mask="url(#fa)"
-					href="#ba"
-				/>
-				<rect width="486" height="46" x="28" y="138" rx="8" />
-				<text
-					fill="#494949"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="62.504" y="158">
-						Price
-					</tspan>
-				</text>
-				<text
-					fill="#494949"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="415.484" y="158">
-						$ 180
-					</tspan>
-				</text>
-				<text
-					fill="#494949"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="62.502" y="247">
-						Mortgage
-					</tspan>
-				</text>
-				<text
-					fill="#494949"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="414.484" y="247">
-						$ 210
-					</tspan>
-				</text>
-				<text
-					fill="#353535"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="62.832" y="202">
-						Rent
-					</tspan>
-				</text>
-				<text
-					fill="#353535"
-					font-family="ArchivoBlack-Regular, Archivo Black"
-					font-size="24"
-					font-weight="700">
-					<tspan x="428" y="202">
-						$ 22
-					</tspan>
-				</text>
-				<path stroke="#979797" />
+				{props.card && props.card.property_details && (
+					<>
+						<use
+							fill="#EBEBEB"
+							stroke="#EBEBEB"
+							stroke-width="2"
+							mask="url(#fa)"
+							href="#ba"
+						/>
+						<rect width="486" height="46" x="28" y="138" rx="8" />
+						<text
+							fill="#494949"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="62.504" y="158">
+								Price
+							</tspan>
+						</text>
+						<text
+							fill="#494949"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="415.484" y="158">
+								${' '}
+								{props.card &&
+									props.card.property_details &&
+									props.card.property_details.price}
+							</tspan>
+						</text>
+						<text
+							fill="#494949"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="62.502" y="247">
+								Mortgage
+							</tspan>
+						</text>
+						<text
+							fill="#494949"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="414.484" y="247">
+								${' '}
+								{props.card &&
+									props.card.property_details &&
+									props.card.property_details.mortgage}
+							</tspan>
+						</text>
+						<text
+							fill="#353535"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="62.832" y="202">
+								Rent
+							</tspan>
+						</text>
+						<text
+							fill="#353535"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700">
+							<tspan x="428" y="202">
+								${' '}
+								{props.card &&
+									props.card.property_details &&
+									props.card.property_details.rent}
+							</tspan>
+						</text>
+						<path stroke="#979797" />
+					</>
+				)}
 			</g>
 		</svg>
 	</PreviewCardWrapper>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Hotel from '../images/hotel.png'
 interface IPreviewCard {
 	card?: {
 		color?: string
@@ -13,9 +13,89 @@ interface IPreviewCard {
 			upgrade?: number
 		}
 	}
+	style?: {
+		position?: string
+		zIndex?: string
+	}
 }
+
+const HotelWrapper1 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 267px;
+	top: 425px;
+	img {
+		height: 35px;
+	}
+`
+
+const HotelWrapper2 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 390px;
+	top: 425px;
+	img {
+		height: 35px;
+	}
+`
+
+const HotelWrapper3 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 445px;
+	top: 425px;
+	img {
+		height: 35px;
+	}
+`
+
+const HotelWrapper4 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 537px;
+	top: 425px;
+	img {
+		height: 35px;
+	}
+`
+const HotelWrapper5 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 587px;
+	top: 425px;
+	img {
+		height: 35px;
+	}
+`
+const HotelWrapper6 = styled.span`
+	position: absolute;
+	z-index: 100;
+	left: 563px;
+	top: 429px;
+	img {
+		height: 35px;
+	}
+`
 const PreviewCard: React.FC<IPreviewCard> = props => (
 	<PreviewCardWrapper>
+		<HotelWrapper1>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper1>
+		<HotelWrapper2>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper2>
+		<HotelWrapper3>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper3>
+		<HotelWrapper4>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper4>
+		<HotelWrapper5>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper5>
+		<HotelWrapper6>
+			<img src={Hotel} alt="hotel" />
+		</HotelWrapper6>
 		{console.log('here', props.card && props.card)}
 		<svg viewBox="-175 -175 893 842">
 			<defs>

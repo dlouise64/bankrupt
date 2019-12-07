@@ -5,16 +5,31 @@ import { AppContext } from '../App'
 import ICard from '../interfaces/ICard'
 import Card from './Card'
 import PreviewCard from './PreviewCard'
+import { useSpring, animated } from 'react-spring'
 
 interface IProps {
 	handlePreviewCard?: any
 	onClick?: any
 }
-const Board: React.FC = () => {
+
+interface Stuff {
+	class?: any
+	style?: any
+}
+const Board: React.FC<Stuff> = () => {
 	const [showPreviewCard, setPreviewCard] = useState(false)
 
 	function handlePreviewCard() {
 		setPreviewCard(!showPreviewCard)
+		const show = document.getElementById('show')
+		if (
+			(show && show.getAttribute('class') === 'hidden') ||
+			(show && show.getAttribute('class') === 'hidden fade')
+		) {
+			show && show.setAttribute('class', 'show')
+		} else {
+			show && show.setAttribute('class', 'hidden fade')
+		}
 	}
 
 	return (
@@ -22,13 +37,19 @@ const Board: React.FC = () => {
 			<Container>
 				<BoardWrapper>
 					<button
-						style={{ position: 'absolute', left: 0, zIndex: 2 }}
+						style={{
+							position: 'absolute',
+							left: 0,
+							zIndex: 2
+						}}
 						onClick={() => handlePreviewCard()}>
 						test
 					</button>
 					<Grid>
 						<Cards handlePreviewCard={handlePreviewCard} />
-						{showPreviewCard && <PreviewCard />}
+						<div id="show" className="hidden">
+							<PreviewCard />
+						</div>
 					</Grid>
 				</BoardWrapper>
 			</Container>
@@ -69,7 +90,7 @@ const BoardWrapper = styled.div`
    bottom: 16%;
    left: 0;
 	right: 0;
-	
+
 	@media (min-width: 765px) {
 		position: static;
 	}

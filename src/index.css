@@ -43,3 +43,47 @@ body {
 	min-height: 100vh;
 	padding: 0;
 }
+
+.hidden,
+.fade,
+.show {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+}
+.hidden {
+	opacity: 0;
+	transform: scale(0);
+}
+
+.fade {
+	animation: fade 300ms ease-out;
+}
+
+.show {
+	animation: show 200ms cubic-bezier(0, 0, 0, 1.4) forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	60% {
+		opacity: 0;
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+
+@keyframes show {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

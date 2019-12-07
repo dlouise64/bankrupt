@@ -5,7 +5,6 @@ import { AppContext } from '../App'
 import ICard from '../interfaces/ICard'
 import Card from './Card'
 import PreviewCard from './PreviewCard'
-import { useSpring, animated } from 'react-spring'
 
 interface IProps {
 	handlePreviewCard?: any

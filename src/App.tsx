@@ -11,7 +11,10 @@ export const AppContext: React.Context<any> = React.createContext(initialState)
 const App: React.FC = () => {
 	return (
 		<AppContext.Provider value={{ cards: cards }}>
-			<Board />
+			<div className="main">
+				<h1>Oops, this game is not built for landscape</h1>
+				<Board />
+			</div>
 		</AppContext.Provider>
 	)
 }

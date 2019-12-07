@@ -1,165 +1,169 @@
 import React from 'react'
+import Utility from './Utility'
+import Jail from './Jail'
+import Start from './Start'
+import Tax from './Tax'
+import ICard from '../interfaces/ICard'
 import styled from 'styled-components'
 
-interface IProps {
-	empty?: boolean
-	borderBase?: number
-	color?: string
-	type_color?: string
-	type: string
-}
-const Card: React.FC<IProps> = props =>
-	props.empty ? (
-		<EmptyCard />
-	) : (
-		<CardWrapper
-			color={props.color}
-			type_color={props.type_color}
-			type={props.type}
-			borderBase={22}>
-			{props.children}
+const Card: React.FC<ICard> = props => {
+	const { card } = props
+	return (
+		<CardWrapper card={card} type={card.type}>
+			{card.type === 'place' && (
+				<Tile
+					card={card}
+					name={card.name}
+					color={card.color}
+					type_color={card.type_color}
+					type={card.type}
+					property_details={card.property_details}
+				/>
+			)}
+			{card.type === 'utility' && (
+				<Utility
+					card={card}
+					name={card.name}
+					color={card.color}
+					type_color={card.type_color}
+					type={card.type}
+					property_details={card.property_details}
+				/>
+			)}
+			{card.type === 'jail' && <Jail />}
+			{card.type === 'draw' && (
+				<Tile
+					card={card}
+					name={card.name}
+					color={card.color}
+					type_color={card.type_color}
+					type={card.type}
+					property_details={card.property_details}
+				/>
+			)}
+			{card.type === 'text' && (
+				<Tile
+					card={card}
+					name={card.name}
+					color={card.color}
+					type_color={card.type_color}
+					type={card.type}
+					property_details={card.property_details}
+				/>
+			)}
+			{card.type === 'start' && <Start />}
+			{card.type === 'tax' && <Tax />}
 		</CardWrapper>
 	)
+}
 
-const EmptyCard = styled.div`
-	background: transparent;
-`
-
-const CardWrapper = styled.div<IProps>`
-	background: ${props => props.color};
-	border-radius: 16%;
-	width: 100%;
-	height: 0;
-	padding-bottom: 96%;
-	position: relative;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: white;
-
-	p {
-		font-size: 20px;
+const CardWrapper = styled.div<ICard>`
+	svg {
 		width: 100%;
-		left: 0;
-		top: 1px;
-		position: absolute;
+		display: ${props => (props.type === 'empty' ? 'none' : 'block')};
 
-		text-align: center;
-		color: ${props => props.type_color && props.type_color};
-	}
-	/* Extra small devices (phones, 600px and down) */
-	@media only screen and (max-width: 600px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: 10px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '6px'};
+		g {
+			text {
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
 		}
-	}
-
-	/* Extra small devices (phones, 600px and down) */
-	@media only screen and (min-width: 414px) and (min-height: 736px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			margin-top: 10px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '7px'};
-		}
-	}
-
-	@media only screen and (min-width: 375px) and (min-height: 812px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 18}px #fff;
-		p {
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '7px'};
-		}
-	}
-
-	/* Small devices (portrait tablets and large phones, 600px and up) */
-	@media only screen and (min-width: 600px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 12}px #fff;
-		p {
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '7px'};
-		}
-	}
-
-	/* Medium devices (landscape tablets, 768px and up) */
-	@media only screen and (min-width: 768px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 12}px #fff;
-		p {
-			margin-top: 22px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '50px' : '14px'};
-		}
-	}
-
-	/* Large devices (laptops/desktops, 992px and up) */
-	@media only screen and (min-width: 992px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 8}px #fff;
-		p {
-			margin-top: 28px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '70px' : '20px'};
-		}
-	}
-
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1200px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 5}px #fff;
-		p {
-			margin-top: 43px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '90px' : '26px'};
-		}
-	}
-	@media only screen and (min-width: 1200px) and (min-height: 950px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 5}px #fff;
-		p {
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '90px' : '7px'};
-		}
-	}
-
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1440px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 16}px #fff;
-		p {
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '20px' : '7px'};
-		}
-	}
-
-	@media only screen and (min-width: 1200px) and (min-height: 900px) {
-		box-shadow: inset 0 0 0
-			${props => props.borderBase && props.borderBase - 5}px #fff;
-		p {
-			margin-top: 45px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '100px' : '31px'};
-		}
-	}
-
-	@media only screen and (min-width: 1680px) and (min-height: 900px) {
-		box-shadow: inset 0 0 0 ${props => props.borderBase}px #fff;
-		p {
-			margin-top: 55px;
-			font-size: ${props =>
-				props.type && props.type === 'draw' ? '140px' : '36px'};
-		}
-	}
-
-	h2 {
-		color: ${props => props.type_color};
 	}
 `
+
+const Tile: React.FC<ICard> = props => {
+	return (
+		<svg width="100%" viewBox="0 0 150 147">
+			<defs>
+				<rect id="a" width="142" height="138.296" rx="21" />
+				<filter
+					id="b"
+					width="200%"
+					height="200%"
+					x="-50%"
+					y="-50%"
+					filterUnits="objectBoundingBox">
+					<feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1" />
+					<feGaussianBlur
+						stdDeviation="2"
+						in="shadowOffsetOuter1"
+						result="shadowBlurOuter1"
+					/>
+					<feComposite
+						in="shadowBlurOuter1"
+						in2="SourceAlpha"
+						operator="out"
+						result="shadowBlurOuter1"
+					/>
+					<feColorMatrix
+						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
+						in="shadowBlurOuter1"
+					/>
+				</filter>
+				<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
+					<use href="#a" />
+				</mask>
+			</defs>
+			<g fill="none" fillRule="evenodd" transform="translate(4 2)">
+				<use fill="black" filter="url(#b)" href="#a" />
+				<use
+					fill={props.color}
+					stroke="#FFFFFF"
+					strokeWidth="14"
+					mask="url(#c)"
+					href="#a"
+				/>
+				<text
+					fill={
+						props.type === 'utility'
+							? props.type_color
+							: props.name === '?'
+							? props.type_color
+							: props.name === 'Tax'
+							? props.type_color
+							: '#fff'
+					}
+					fontFamily="ArchivoBlack-Regular, Archivo Black"
+					fontSize={
+						props.name === 'Water works'
+							? 12
+							: props.name === 'Electricity'
+							? 14
+							: props.name === '?'
+							? 55
+							: 18
+					}
+					fontWeight="700"
+					textAnchor="middle"
+					alignmentBaseline="central">
+					<tspan x="48%" y={props.name === '?' ? '85' : '37.583'}>
+						{props.name}
+					</tspan>
+				</text>
+				{props.type === 'place' && (
+					<text
+						fill="#fff"
+						fontFamily="ArchivoBlack-Regular, Archivo Black"
+						fontSize={
+							props.name === 'Water works'
+								? 12
+								: props.name === 'Electricity'
+								? 14
+								: props.name === '?'
+								? 55
+								: 18
+						}
+						fontWeight="700"
+						textAnchor="middle"
+						alignmentBaseline="central">
+						<tspan x="48%" y={props.name === '?' ? '85' : '110'}>
+							${props.property_details && props.property_details.price}
+						</tspan>
+					</text>
+				)}
+			</g>
+		</svg>
+	)
+}
 
 export default Card

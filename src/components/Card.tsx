@@ -87,9 +87,9 @@ const Tile: React.FC<ICard> = props => {
 	return (
 		<svg width="100%" viewBox="0 0 150 147">
 			<defs>
-				<rect id="a" width="142" height="138.296" rx="21" />
+				<rect id="aa" width="142" height="138.296" rx="21" />
 				<filter
-					id="b"
+					id="ab"
 					width="200%"
 					height="200%"
 					x="-50%"
@@ -112,18 +112,18 @@ const Tile: React.FC<ICard> = props => {
 						in="shadowBlurOuter1"
 					/>
 				</filter>
-				<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
-					<use href="#a" />
+				<mask id="ac" width="142" height="138.296" x="0" y="0" fill="white">
+					<use href="#aa" />
 				</mask>
 			</defs>
 			<g fill="none" fillRule="evenodd" transform="translate(4 2)">
-				<use fill="black" filter="url(#b)" href="#a" />
+				<use fill="black" filter="url(#ab)" href="#aa" />
 				<use
 					fill={props.color}
 					stroke="#FFFFFF"
 					strokeWidth="14"
-					mask="url(#c)"
-					href="#a"
+					mask="url(#ac)"
+					href="#aa"
 				/>
 				<text
 					fill={

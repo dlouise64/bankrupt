@@ -3,9 +3,9 @@ import React from 'react'
 const Jail: React.FC = () => (
 	<svg viewBox="0 0 150 147">
 		<defs>
-			<rect id="a" width="142" height="138.296" rx="21" />
+			<rect id="ba" width="142" height="138.296" rx="21" />
 			<filter
-				id="b"
+				id="bb"
 				width="200%"
 				height="200%"
 				x="-50%"
@@ -28,18 +28,18 @@ const Jail: React.FC = () => (
 					in="shadowBlurOuter1"
 				/>
 			</filter>
-			<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
-				<use href="#a" />
+			<mask id="bc" width="142" height="138.296" x="0" y="0" fill="white">
+				<use href="#ba" />
 			</mask>
 		</defs>
 		<g fill="none" fillRule="evenodd" transform="translate(4 2)">
-			<use fill="black" filter="url(#b)" href="#a" />
+			<use fill="black" filter="url(#bb)" href="#ba" />
 			<use
 				fill="#FFFFFF"
 				stroke="#FFFFFF"
 				strokeWidth="14"
-				mask="url(#c)"
-				href="#a"
+				mask="url(#bc)"
+				href="#ba"
 			/>
 			<g transform="translate(28 26)">
 				<circle cx="43.5" cy="43.5" r="43.5" fill="#9B89B8" stroke="#9B89B8" />

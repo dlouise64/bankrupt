@@ -4,7 +4,7 @@ const Tax: React.FC = () => (
 	<svg viewBox="-696 894 150 147">
 		<defs>
 			<rect
-				id="path-1"
+				id="taxpath-1"
 				x="0"
 				y="0"
 				width="142"
@@ -16,7 +16,7 @@ const Tax: React.FC = () => (
 				width="200%"
 				height="200%"
 				filterUnits="objectBoundingBox"
-				id="filter-2">
+				id="taxfilter-2">
 				<feOffset
 					dx="0"
 					dy="2"
@@ -37,7 +37,7 @@ const Tax: React.FC = () => (
 					in="shadowBlurOuter1"></feColorMatrix>
 			</filter>
 			<mask
-				id="mask-3"
+				id="taxmask-3"
 				maskContentUnits="userSpaceOnUse"
 				maskUnits="objectBoundingBox"
 				x="0"
@@ -45,11 +45,17 @@ const Tax: React.FC = () => (
 				width="142"
 				height="138.295652"
 				fill="white">
-				<use href="#path-1"></use>
+				<use href="#taxpath-1"></use>
 			</mask>
-			<rect id="path-4" x="34" y="65" width="75" height="33" rx="16.5"></rect>
+			<rect
+				id="taxpath-4"
+				x="34"
+				y="65"
+				width="75"
+				height="33"
+				rx="16.5"></rect>
 			<mask
-				id="mask-5"
+				id="taxmask-5"
 				maskContentUnits="userSpaceOnUse"
 				maskUnits="objectBoundingBox"
 				x="0"
@@ -57,39 +63,39 @@ const Tax: React.FC = () => (
 				width="75"
 				height="33"
 				fill="white">
-				<use href="#path-4"></use>
+				<use href="#taxpath-4"></use>
 			</mask>
 		</defs>
 		<g
-			id="card"
+			id="taxcard"
 			stroke="none"
 			strokeWidth="1"
 			fill="none"
 			fillRule="evenodd"
 			transform="translate(-692.000000, 896.000000)">
-			<g id="Rectangle-4">
+			<g id="taxRectangle-4">
 				<use
 					fill="black"
 					fillOpacity="1"
-					filter="url(#filter-2)"
-					href="#path-1"></use>
+					filter="url(#taxfilter-2)"
+					href="#taxpath-1"></use>
 				<use
 					stroke="#FFFFFF"
-					mask="url(#mask-3)"
+					mask="url(#taxmask-3)"
 					strokeWidth="14"
 					fill="#FFFFFF"
 					fillRule="evenodd"
-					href="#path-1"></use>
+					href="#taxpath-1"></use>
 			</g>
 			<use
-				id="Rectangle-5"
+				id="taxRectangle-5"
 				stroke="#9C8AB8"
-				mask="url(#mask-5)"
+				mask="url(#taxmask-5)"
 				strokeWidth="2"
 				fill="#9C8AB8"
-				href="#path-4"></use>
+				href="#taxpath-4"></use>
 			<text
-				id="$160"
+				id="tax$160"
 				fontFamily="ArchivoBlack-Regular, Archivo Black"
 				fontSize="18"
 				fontWeight="700"
@@ -101,7 +107,7 @@ const Tax: React.FC = () => (
 				</tspan>
 			</text>
 			<text
-				id="label"
+				id="taxlabel"
 				fontFamily="ArchivoBlack-Regular, Archivo Black"
 				fontSize="18"
 				fontWeight="700"

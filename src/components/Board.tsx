@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import styled from 'styled-components'
 import Container from './Layout/Container'
 import { AppContext } from '../App'
 import ICard from '../interfaces/ICard'
 import Card from './Card'
 import PreviewCard from './PreviewCard'
+
+const initialState = {
+	showPreviewCard: false,
+	clickedCard: {}
+}
+
+export const BoardContext: React.Context<any> = createContext(initialState)
 
 interface IProps {
 	handlePreviewCard?: any
@@ -16,9 +23,12 @@ interface Stuff {
 	style?: any
 	type?: any
 }
+
 const Board: React.FC<Stuff> = () => {
-	const [showPreviewCard, setPreviewCard] = useState(false)
-	const [clickedCard, setClickedCard] = useState({})
+	const [showPreviewCard, setPreviewCard] = useState(
+		initialState.showPreviewCard
+	)
+	const [clickedCard, setClickedCard] = useState(initialState.clickedCard)
 
 	function handlePreviewCard(card: { type: string; name: string }) {
 		if (
@@ -33,26 +43,35 @@ const Board: React.FC<Stuff> = () => {
 				(show && show.getAttribute('class') === 'hidden') ||
 				(show && show.getAttribute('class') === 'hidden fade')
 			) {
-				show && show.setAttribute('class', 'show')
+				if (show) {
+					show.setAttribute('class', 'show')
+					show.setAttribute('style', 'z-index: 5000')
+				}
 			} else {
-				show && show.setAttribute('class', 'hidden fade')
+				if (show) {
+					show.setAttribute('class', 'hidden fade')
+					show.setAttribute('style', 'z-index: 0')
+				}
 			}
 		}
 	}
 
 	return (
-		<>
+		<BoardContext.Provider value={showPreviewCard}>
 			<Container>
 				<BoardWrapper>
 					<Grid>
 						<Cards handlePreviewCard={handlePreviewCard} />
 						<div id="show" className="hidden">
-							<PreviewCard card={clickedCard} />
+							<PreviewCard
+								card={clickedCard}
+								handlePreviewCard={handlePreviewCard}
+							/>
 						</div>
 					</Grid>
 				</BoardWrapper>
 			</Container>
-		</>
+		</BoardContext.Provider>
 	)
 }
 

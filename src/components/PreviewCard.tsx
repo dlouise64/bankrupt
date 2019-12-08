@@ -29,6 +29,46 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 		<PreviewCardWrapper>
 			<svg viewBox="-175 -175 893 842">
 				<defs>
+					<linearGradient
+						x1="93.2547048%"
+						y1="100%"
+						x2="7.09383633%"
+						y2="100%"
+						id="linearGradient-7">
+						<stop stop-color="#036300" offset="0%"></stop>
+						<stop stop-color="#168900" offset="11.2703045%"></stop>
+						<stop stop-color="#168900" offset="87.8567761%"></stop>
+						<stop stop-color="#196C01" offset="100%"></stop>
+					</linearGradient>
+					<linearGradient
+						x1="50%"
+						y1="0%"
+						x2="50%"
+						y2="100%"
+						id="linearGradient-8">
+						<stop stop-color="#48C700" offset="0%"></stop>
+						<stop stop-color="#13A600" offset="100%"></stop>
+					</linearGradient>
+					<linearGradient
+						x1="93.2547048%"
+						y1="100%"
+						x2="7.09383633%"
+						y2="100%"
+						id="linearGradient-9">
+						<stop stop-color="#1F5AA2" offset="0%"></stop>
+						<stop stop-color="#3184C4" offset="9.27523889%"></stop>
+						<stop stop-color="#3083C3" offset="89.3120593%"></stop>
+						<stop stop-color="#1F57A0" offset="100%"></stop>
+					</linearGradient>
+					<linearGradient
+						x1="50%"
+						y1="0%"
+						x2="50%"
+						y2="100%"
+						id="linearGradient-10">
+						<stop stop-color="#3A92D4" offset="0%"></stop>
+						<stop stop-color="#3284C5" offset="100%"></stop>
+					</linearGradient>
 					<rect id="sOne" width="535" height="515" rx="30" />
 					<filter
 						id="rOne"
@@ -494,9 +534,9 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 									<text
 										fill="#9A9A9A"
 										fontFamily="ArchivoBlack-Regular, Archivo Black"
-										fontSize="24"
+										fontSize="18"
 										fontWeight="700">
-										<tspan x="73" y="419">
+										<tspan x="140" y="405">
 											Each hotel upgrade costs: ${' '}
 											{card &&
 												card.property_details &&
@@ -569,6 +609,64 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 							</tspan>
 						</text>
 					)}
+					<g id="Button1" transform="translate(79.000000, 416.000000)">
+						<path
+							d="M0,29.008123 C0,18.5102265 8.5023203,10 19.0067727,10 L161.993227,10 C172.490378,10 181,18.5138803 181,29.008123 L181,51.991877 C181,62.4897735 172.491885,71 162.001231,71 L122.916016,71 L19.0034645,71 C8.50814086,71 0,62.4861197 0,51.991877 L0,29.008123 Z"
+							id="Rectangle-2"
+							fill="url(#linearGradient-7)"></path>
+						<rect
+							id="Rectangle-2"
+							stroke="#16BD00"
+							stroke-width="2"
+							fill="url(#linearGradient-8)"
+							x="1"
+							y="0"
+							width="180"
+							height="61"
+							rx="19"></rect>
+						<text
+							id="BUY"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700"
+							fill="#FFFFFF"
+							onClick={() => alert('Buy Button')}>
+							<tspan x="62.8359375" y="38">
+								BUY
+							</tspan>
+						</text>
+					</g>
+					<g id="Button2" transform="translate(278.000000, 416.000000)">
+						<rect
+							id="Rectangle-2"
+							fill="url(#linearGradient-9)"
+							x="0"
+							y="10"
+							width="181"
+							height="61"
+							rx="19"></rect>
+						<rect
+							id="Rectangle-2"
+							stroke="#39A2D3"
+							stroke-width="2"
+							fill="url(#linearGradient-10)"
+							x="1"
+							y="0"
+							width="180"
+							height="61"
+							rx="19"></rect>
+						<text
+							id="PASS"
+							font-family="ArchivoBlack-Regular, Archivo Black"
+							font-size="24"
+							font-weight="700"
+							fill="#FFFFFF"
+							onClick={() => alert('Pass Button')}>
+							<tspan x="56.1679688" y="38">
+								PASS
+							</tspan>
+						</text>
+					</g>
 				</g>
 			</svg>
 		</PreviewCardWrapper>
@@ -577,5 +675,9 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 
 const PreviewCardWrapper = styled.section`
 	width: 100%;
+
+	svg {
+		z-index: 100;
+	}
 `
 export default PreviewCard

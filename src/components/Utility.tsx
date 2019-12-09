@@ -5,9 +5,9 @@ const Utility: React.FC<ICard> = props => {
 	return (
 		<svg viewBox="0 0 150 147">
 			<defs>
-				<rect id="a" width="142" height="138.296" rx="21" />
+				<rect id="utilitya" width="142" height="138.296" rx="21" />
 				<filter
-					id="b"
+					id="utilityb"
 					width="200%"
 					height="200%"
 					x="-50%"
@@ -30,18 +30,24 @@ const Utility: React.FC<ICard> = props => {
 						in="shadowBlurOuter1"
 					/>
 				</filter>
-				<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
-					<use href="#a" />
+				<mask
+					id="utilityc"
+					width="142"
+					height="138.296"
+					x="0"
+					y="0"
+					fill="white">
+					<use href="#utilitya" />
 				</mask>
 			</defs>
 			<g fill="none" fillRule="evenodd" transform="translate(4 2)">
-				<use fill="black" filter="url(#b)" href="#a" />
+				<use fill="black" filter="url(#utilityb)" href="#utilitya" />
 				<use
 					fill="#FFFFFF"
 					stroke="#FFFFFF"
 					strokeWidth="14"
-					mask="url(#c)"
-					href="#a"
+					mask="url(#utilityc)"
+					href="#utilitya"
 				/>
 				<text
 					fill={

@@ -3,9 +3,9 @@ import React from 'react'
 const Start: React.FC = () => (
 	<svg viewBox="0 0 150 147">
 		<defs>
-			<rect id="a" width="142" height="138.296" rx="21" />
+			<rect id="starta" width="142" height="138.296" rx="21" />
 			<filter
-				id="b"
+				id="startb"
 				width="200%"
 				height="200%"
 				x="-50%"
@@ -28,18 +28,18 @@ const Start: React.FC = () => (
 					in="shadowBlurOuter1"
 				/>
 			</filter>
-			<mask id="c" width="142" height="138.296" x="0" y="0" fill="white">
-				<use href="#a" />
+			<mask id="startc" width="142" height="138.296" x="0" y="0" fill="white">
+				<use href="#starta" />
 			</mask>
 		</defs>
 		<g fill="none" fillRule="evenodd" transform="translate(4 2)">
-			<use fill="black" filter="url(#b)" href="#a" />
+			<use fill="black" filter="url(#startb)" href="#starta" />
 			<use
 				fill="#FFFFFF"
 				stroke="#FFFFFF"
 				strokeWidth="14"
-				mask="url(#c)"
-				href="#a"
+				mask="url(#startc)"
+				href="#starta"
 			/>
 			<path
 				fill="#9C8AB8"

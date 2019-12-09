@@ -192,27 +192,15 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 								<g fill="none" fillRule="evenodd" transform="translate(4 2)">
 									<use fill="black" filter="url(#g)" href="#h" />
 									<use fill="#FFFFFF" href="#h" />
-									<g onClick={() => alert('buying...')}>
-										<Button
-											text="BUY"
-											topFillId="i"
-											bottomFillId="j"
-											strokeColor="#16BD00"
-											translate="translate(79 416)"
-										/>
-									</g>
-									<g
-										onClick={() =>
-											props.handlePreviewCard && props.handlePreviewCard(false)
-										}>
-										<Button
-											text="PASS"
-											topFillId="pass-button-top"
-											bottomFillId="pass-button-bottom"
-											strokeColor="#39A2D3"
-											translate="translate(278 416)"
-										/>
-									</g>
+
+									{props.card.type !== 'draw' && props.card.type !== 'tax' && (
+										<Buttons handlePreviewCard={props.handlePreviewCard} />
+									)}
+
+									{props.card.type === 'draw' && (
+										<DrawDescription description={props.card.description} />
+									)}
+									{props.card.type === 'tax' && <TaxDescription />}
 
 									{props.card.property_details &&
 										props.card.property_details.upgrade && (
@@ -232,7 +220,11 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 									{props.card.name && (
 										<PreviewCardHeader
 											bgColor={props.card.color}
-											text={props.card.name.toUpperCase()}
+											text={
+												props.card.name === '?'
+													? props.card.draw_name
+													: props.card.name.toUpperCase()
+											}
 											handlePreviewCard={props.handlePreviewCard}
 										/>
 									)}
@@ -245,6 +237,44 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 		</BoardContext.Consumer>
 	)
 }
+
+const DrawDescription = (props: { description: any }) => (
+	<g>
+		<text
+			fill="#2F2E2F"
+			fontFamily="ArchivoBlack-Regular, Archivo Black"
+			fontSize="24"
+			fontWeight="700"
+			textAnchor="middle"
+			alignmentBaseline="central">
+			<tspan x="30%" y="235">
+				{props.description && props.description}
+			</tspan>
+		</text>
+	</g>
+)
+
+const TaxDescription = () => (
+	<g>
+		<text
+			fill="#2F2E2F"
+			fontFamily="ArchivoBlack-Regular, Archivo Black"
+			fontSize="24"
+			fontWeight="700"
+			textAnchor="middle"
+			alignmentBaseline="central">
+			<tspan x="30%" y="200">
+				Pay 7% of your assets
+			</tspan>
+			<tspan x="30%" y="235">
+				to the bank when you
+			</tspan>
+			<tspan x="30%" y="270">
+				land on this card
+			</tspan>
+		</text>
+	</g>
+)
 
 interface IHotelUpgrade {
 	price: any
@@ -261,6 +291,32 @@ const HotelUpgrade: React.FC<IHotelUpgrade> = props => (
 	</text>
 )
 
+interface IButtons {
+	handlePreviewCard: any
+}
+const Buttons: React.FC<IButtons> = props => (
+	<g>
+		<g onClick={() => alert('buying...')}>
+			<Button
+				text="BUY"
+				topFillId="i"
+				bottomFillId="j"
+				strokeColor="#16BD00"
+				translate="translate(79 416)"
+			/>
+		</g>
+		<g
+			onClick={() => props.handlePreviewCard && props.handlePreviewCard(false)}>
+			<Button
+				text="PASS"
+				topFillId="pass-button-top"
+				bottomFillId="pass-button-bottom"
+				strokeColor="#39A2D3"
+				translate="translate(278 416)"
+			/>
+		</g>
+	</g>
+)
 interface ITablePrices {
 	prices: any
 }

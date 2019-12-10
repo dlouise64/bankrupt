@@ -31,206 +31,190 @@ const PreviewCard: React.FC<IPreviewCard> = props => {
 		<BoardContext.Consumer>
 			{value => {
 				return (
-					<PreviewCardWrapper>
-						{props.card && (
-							<svg viewBox="-175 -175 893 842">
-								<defs>
-									<rect id="h" width="535" height="515" rx="30" />
-									<filter
-										id="g"
-										width="200%"
-										height="200%"
-										x="-50%"
-										y="-50%"
-										filterUnits="objectBoundingBox">
-										<feOffset
-											dy="2"
-											in="SourceAlpha"
-											result="shadowOffsetOuter1"
-										/>
-										<feGaussianBlur
-											stdDeviation="2"
-											in="shadowOffsetOuter1"
-											result="shadowBlurOuter1"
-										/>
-										<feColorMatrix
-											values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-											in="shadowBlurOuter1"
-										/>
-									</filter>
-									<linearGradient
-										id="i"
-										x1="93.255%"
-										x2="7.094%"
-										y1="100%"
-										y2="100%">
-										<stop stopColor="#036300" offset="0%" />
-										<stop stopColor="#168900" offset="11.27%" />
-										<stop stopColor="#168900" offset="87.857%" />
-										<stop stopColor="#196C01" offset="100%" />
-									</linearGradient>
-									<linearGradient id="j" x1="50%" x2="50%" y1="0%" y2="100%">
-										<stop stopColor="#48C700" offset="0%" />
-										<stop stopColor="#13A600" offset="100%" />
-									</linearGradient>
-									<linearGradient
-										id="pass-button-top"
-										x1="93.255%"
-										x2="7.094%"
-										y1="100%"
-										y2="100%">
-										<stop stopColor="#1F5AA2" offset="0%" />
-										<stop stopColor="#3184C4" offset="9.275%" />
-										<stop stopColor="#3083C3" offset="89.312%" />
-										<stop stopColor="#1F57A0" offset="100%" />
-									</linearGradient>
-									<linearGradient
-										id="pass-button-bottom"
-										x1="50%"
-										x2="50%"
-										y1="0%"
-										y2="100%">
-										<stop stopColor="#3A92D4" offset="0%" />
-										<stop stopColor="#3284C5" offset="100%" />
-									</linearGradient>
-									<rect id="a" width="486" height="46" rx="8" />
-									<mask id="m" width="486" height="46" x="0" y="0" fill="white">
-										<use href="#a" />
-									</mask>
-									<rect id="b" width="135" height="109" y="1" rx="14" />
-									<mask
-										id="n"
-										width="135"
-										height="109"
-										x="0"
-										y="0"
-										fill="white">
-										<use href="#b" />
-									</mask>
-									<rect id="c" width="135" height="109" y="1" rx="14" />
-									<mask
-										id="o"
-										width="135"
-										height="109"
-										x="0"
-										y="0"
-										fill="white">
-										<use href="#c" />
-									</mask>
-									<rect id="d" width="135" height="109" y="1" rx="14" />
-									<mask
-										id="p"
-										width="135"
-										height="109"
-										x="0"
-										y="0"
-										fill="white">
-										<use href="#d" />
-									</mask>
-									<rect id="e" width="481" height="83" rx="14" />
-									<mask id="q" width="481" height="83" x="0" y="0" fill="white">
-										<use href="#e" />
-									</mask>
-									<ellipse id="s" cx="19" cy="22.5" rx="19" ry="18.5" />
-									<filter
-										id="r"
-										width="200%"
-										height="200%"
-										x="-50%"
-										y="-50%"
-										filterUnits="objectBoundingBox">
-										<feOffset
-											dy="6"
-											in="SourceAlpha"
-											result="shadowOffsetOuter1"
-										/>
-										<feGaussianBlur
-											stdDeviation="1"
-											in="shadowOffsetOuter1"
-											result="shadowBlurOuter1"
-										/>
-										<feColorMatrix
-											values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.263275589 0"
-											in="shadowBlurOuter1"
-										/>
-									</filter>
-									<linearGradient id="u" x1="50%" x2="50%" y1="0%" y2="100%">
-										<stop stopColor="#F75C61" offset="0%" />
-										<stop stopColor="#E0383B" offset="100%" />
-									</linearGradient>
-									<ellipse id="f" cx="19" cy="18.5" rx="19" ry="18.5" />
-									<mask id="t" width="38" height="37" x="0" y="0" fill="white">
-										<use href="#f" />
-									</mask>
-									<path
-										id="w"
-										d="M11,27 L16.2913386,18.0856721 L11.503937,10 L16.0393701,10 L18.4330709,14.2939439 C18.5002628,14.4111281 18.580052,14.5659764 18.6724409,14.7584934 C18.7648299,14.9510103 18.8698157,15.1477095 18.9874016,15.3485968 C19.1049875,15.1644501 19.2099733,14.9803062 19.3023622,14.7961595 C19.3947511,14.6120129 19.4829392,14.4529795 19.5669291,14.3190547 L21.9858268,10 L26.5212598,10 L21.7086614,18.1107829 L27,27 L22.4141732,27 L19.592126,21.9778434 C19.5081361,21.8439186 19.4157485,21.6807001 19.3149606,21.4881832 C19.2141727,21.2956662 19.1049875,21.098967 18.9874016,20.8980798 L18.407874,21.9778434 L15.5858268,27 L11,27 Z"
+					<PreviewCardWrapper id="svgCard">
+						<svg viewBox="-175 -175 893 842">
+							<defs>
+								<rect id="h" width="535" height="515" rx="30" />
+								<filter
+									id="g"
+									width="200%"
+									height="200%"
+									x="-50%"
+									y="-50%"
+									filterUnits="objectBoundingBox">
+									<feOffset
+										dy="2"
+										in="SourceAlpha"
+										result="shadowOffsetOuter1"
 									/>
-									<filter
-										id="v"
-										width="200%"
-										height="200%"
-										x="-50%"
-										y="-50%"
-										filterUnits="objectBoundingBox">
-										<feOffset
-											dy="3"
-											in="SourceAlpha"
-											result="shadowOffsetOuter1"
-										/>
-										<feGaussianBlur
-											stdDeviation="1"
-											in="shadowOffsetOuter1"
-											result="shadowBlurOuter1"
-										/>
-										<feColorMatrix
-											values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.309358016 0"
-											in="shadowBlurOuter1"
-										/>
-									</filter>
-								</defs>
-								<g fill="none" fillRule="evenodd" transform="translate(4 2)">
-									<use fill="black" filter="url(#g)" href="#h" />
-									<use fill="#FFFFFF" href="#h" />
+									<feGaussianBlur
+										stdDeviation="2"
+										in="shadowOffsetOuter1"
+										result="shadowBlurOuter1"
+									/>
+									<feColorMatrix
+										values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
+										in="shadowBlurOuter1"
+									/>
+								</filter>
+								<linearGradient
+									id="i"
+									x1="93.255%"
+									x2="7.094%"
+									y1="100%"
+									y2="100%">
+									<stop stopColor="#036300" offset="0%" />
+									<stop stopColor="#168900" offset="11.27%" />
+									<stop stopColor="#168900" offset="87.857%" />
+									<stop stopColor="#196C01" offset="100%" />
+								</linearGradient>
+								<linearGradient id="j" x1="50%" x2="50%" y1="0%" y2="100%">
+									<stop stopColor="#48C700" offset="0%" />
+									<stop stopColor="#13A600" offset="100%" />
+								</linearGradient>
+								<linearGradient
+									id="pass-button-top"
+									x1="93.255%"
+									x2="7.094%"
+									y1="100%"
+									y2="100%">
+									<stop stopColor="#1F5AA2" offset="0%" />
+									<stop stopColor="#3184C4" offset="9.275%" />
+									<stop stopColor="#3083C3" offset="89.312%" />
+									<stop stopColor="#1F57A0" offset="100%" />
+								</linearGradient>
+								<linearGradient
+									id="pass-button-bottom"
+									x1="50%"
+									x2="50%"
+									y1="0%"
+									y2="100%">
+									<stop stopColor="#3A92D4" offset="0%" />
+									<stop stopColor="#3284C5" offset="100%" />
+								</linearGradient>
+								<rect id="a" width="486" height="46" rx="8" />
+								<mask id="m" width="486" height="46" x="0" y="0" fill="white">
+									<use href="#a" />
+								</mask>
+								<rect id="b" width="135" height="109" y="1" rx="14" />
+								<mask id="n" width="135" height="109" x="0" y="0" fill="white">
+									<use href="#b" />
+								</mask>
+								<rect id="c" width="135" height="109" y="1" rx="14" />
+								<mask id="o" width="135" height="109" x="0" y="0" fill="white">
+									<use href="#c" />
+								</mask>
+								<rect id="d" width="135" height="109" y="1" rx="14" />
+								<mask id="p" width="135" height="109" x="0" y="0" fill="white">
+									<use href="#d" />
+								</mask>
+								<rect id="e" width="481" height="83" rx="14" />
+								<mask id="q" width="481" height="83" x="0" y="0" fill="white">
+									<use href="#e" />
+								</mask>
+								<ellipse id="s" cx="19" cy="22.5" rx="19" ry="18.5" />
+								<filter
+									id="r"
+									width="200%"
+									height="200%"
+									x="-50%"
+									y="-50%"
+									filterUnits="objectBoundingBox">
+									<feOffset
+										dy="6"
+										in="SourceAlpha"
+										result="shadowOffsetOuter1"
+									/>
+									<feGaussianBlur
+										stdDeviation="1"
+										in="shadowOffsetOuter1"
+										result="shadowBlurOuter1"
+									/>
+									<feColorMatrix
+										values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.263275589 0"
+										in="shadowBlurOuter1"
+									/>
+								</filter>
+								<linearGradient id="u" x1="50%" x2="50%" y1="0%" y2="100%">
+									<stop stopColor="#F75C61" offset="0%" />
+									<stop stopColor="#E0383B" offset="100%" />
+								</linearGradient>
+								<ellipse id="f" cx="19" cy="18.5" rx="19" ry="18.5" />
+								<mask id="t" width="38" height="37" x="0" y="0" fill="white">
+									<use href="#f" />
+								</mask>
+								<path
+									id="w"
+									d="M11,27 L16.2913386,18.0856721 L11.503937,10 L16.0393701,10 L18.4330709,14.2939439 C18.5002628,14.4111281 18.580052,14.5659764 18.6724409,14.7584934 C18.7648299,14.9510103 18.8698157,15.1477095 18.9874016,15.3485968 C19.1049875,15.1644501 19.2099733,14.9803062 19.3023622,14.7961595 C19.3947511,14.6120129 19.4829392,14.4529795 19.5669291,14.3190547 L21.9858268,10 L26.5212598,10 L21.7086614,18.1107829 L27,27 L22.4141732,27 L19.592126,21.9778434 C19.5081361,21.8439186 19.4157485,21.6807001 19.3149606,21.4881832 C19.2141727,21.2956662 19.1049875,21.098967 18.9874016,20.8980798 L18.407874,21.9778434 L15.5858268,27 L11,27 Z"
+								/>
+								<filter
+									id="v"
+									width="200%"
+									height="200%"
+									x="-50%"
+									y="-50%"
+									filterUnits="objectBoundingBox">
+									<feOffset
+										dy="3"
+										in="SourceAlpha"
+										result="shadowOffsetOuter1"
+									/>
+									<feGaussianBlur
+										stdDeviation="1"
+										in="shadowOffsetOuter1"
+										result="shadowBlurOuter1"
+									/>
+									<feColorMatrix
+										values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.309358016 0"
+										in="shadowBlurOuter1"
+									/>
+								</filter>
+							</defs>
+							<g fill="none" fillRule="evenodd" transform="translate(4 2)">
+								<use fill="black" filter="url(#g)" href="#h" />
+								<use fill="#FFFFFF" href="#h" />
 
-									{props.card.type !== 'draw' && props.card.type !== 'tax' && (
+								{props.card &&
+									props.card.type !== 'draw' &&
+									props.card.type !== 'tax' && (
 										<Buttons handlePreviewCard={props.handlePreviewCard} />
 									)}
 
-									{props.card.type === 'draw' && (
-										<DrawDescription description={props.card.description} />
+								{props.card && props.card.type === 'draw' && (
+									<DrawDescription description={props.card.description} />
+								)}
+								{props.card && props.card.type === 'tax' && <TaxDescription />}
+
+								{props.card &&
+									props.card.property_details &&
+									props.card.property_details.upgrade && (
+										<HotelUpgrade price={props.card.property_details.upgrade} />
 									)}
-									{props.card.type === 'tax' && <TaxDescription />}
 
-									{props.card.property_details &&
-										props.card.property_details.upgrade && (
-											<HotelUpgrade
-												price={props.card.property_details.upgrade}
-											/>
-										)}
+								<TablePrices
+									prices={props.card && props.card.property_details}
+								/>
 
-									<TablePrices prices={props.card.property_details} />
-
-									{props.card.property_details &&
-										props.card.property_details.hotel_rents && (
-											<HotelPrices
-												prices={props.card.property_details.hotel_rents}
-											/>
-										)}
-									{props.card.name && (
-										<PreviewCardHeader
-											bgColor={props.card.color}
-											text={
-												props.card.name === '?'
-													? props.card.draw_name
-													: props.card.name.toUpperCase()
-											}
-											handlePreviewCard={props.handlePreviewCard}
+								{props.card &&
+									props.card.property_details &&
+									props.card.property_details.hotel_rents && (
+										<HotelPrices
+											prices={props.card.property_details.hotel_rents}
 										/>
 									)}
-								</g>
-							</svg>
-						)}
+								{props.card && props.card.name && (
+									<PreviewCardHeader
+										bgColor={props.card.color}
+										text={
+											props.card.name === '?'
+												? props.card.draw_name
+												: props.card.name.toUpperCase()
+										}
+										handlePreviewCard={props.handlePreviewCard}
+									/>
+								)}
+							</g>
+						</svg>
 					</PreviewCardWrapper>
 				)
 			}}

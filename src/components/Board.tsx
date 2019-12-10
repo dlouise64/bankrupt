@@ -38,21 +38,7 @@ const Board: React.FC<Stuff> = () => {
 		) {
 			setClickedCard(card)
 			setPreviewCard(!showPreviewCard)
-			const show = document.getElementById('show')
-			if (
-				(show && show.getAttribute('class') === 'hidden') ||
-				(show && show.getAttribute('class') === 'hidden fade')
-			) {
-				if (show) {
-					show.setAttribute('class', 'show')
-					show.setAttribute('style', 'z-index: 5000')
-				}
-			} else {
-				if (show) {
-					show.setAttribute('class', 'hidden fade')
-					show.setAttribute('style', 'z-index: 0')
-				}
-			}
+			previewCardAnimation()
 		}
 	}
 
@@ -133,4 +119,21 @@ const Grid = styled.div`
 	grid-template-rows: repeat(6, minmax(auto, 1fr));
 `
 
+function previewCardAnimation() {
+	const show = document.getElementById('show')
+	if (
+		(show && show.getAttribute('class') === 'hidden') ||
+		(show && show.getAttribute('class') === 'hidden fade')
+	) {
+		if (show) {
+			show.setAttribute('class', 'show')
+			show.setAttribute('style', 'z-index: 5000')
+		}
+	} else {
+		if (show) {
+			show.setAttribute('class', 'hidden fade')
+			show.setAttribute('style', 'z-index: 0')
+		}
+	}
+}
 export default Board

@@ -112,6 +112,17 @@ const BoardWrapper = styled.div`
 	@media (min-width: 765px) {
 		position: static;
 	}
+	@media (min-device-width: 768px) {
+		max-width: calc(100vh - 10em);
+	}
+	@media (min-device-width: 1336px) {
+		max-width: calc(100vh - 10em);
+	}
+
+	@media (min-device-width: 1440px) {
+		max-width: calc(100vh - 15em);
+	}
+
 }
 `
 

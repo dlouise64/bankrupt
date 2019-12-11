@@ -83,6 +83,7 @@ const Board: React.FC<Stuff> = (props: any) => {
 
 	function moveTokenOnBoard() {
 		// drawAChanceCard()
+		// TODO: need to add logic for change cards
 		// move the players token on the board
 		const sumOfDicesRolled = dicesPlayed.reduce((a, b) => a + b, 0)
 		const wentPastStart = sumOfDicesRolled > 19

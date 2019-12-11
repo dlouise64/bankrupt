@@ -8,5 +8,7 @@ const Container: React.FC = ({ children }) => {
 const ContainerWrapper = styled.div`
 	margin: 0 auto;
 	// position: relative;
+	// width: 38vw;
+	// height: 74vh;
 `
 export default Container

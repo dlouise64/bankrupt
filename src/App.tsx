@@ -13,7 +13,7 @@ const App: React.FC = () => {
 		<AppContext.Provider value={{ cards: cards }}>
 			<div className="main">
 				<h1>Oops, this game is not built for landscape</h1>
-				<Board />
+				<Board cards={cards} />
 			</div>
 		</AppContext.Provider>
 	)

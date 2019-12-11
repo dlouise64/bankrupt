@@ -1,4 +1,5 @@
 export default interface ICard {
+	handleLandedOnCard?: any
 	type?: string
 	color?: string
 	name?: string
@@ -9,4 +10,5 @@ export default interface ICard {
 	card: any
 	onClick?: any
 	handlePreviewCard?: any
+	position?: number
 }

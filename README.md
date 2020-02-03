@@ -1,5 +1,7 @@
 # Bankrupt Clone
 
+Responsive Board Game
+
 # TODOs
 
 - make responsive grid board (start with mobile view)

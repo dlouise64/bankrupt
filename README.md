@@ -1,6 +1,6 @@
 # Bankrupt Clone
 
-Responsive Board Game
+Responsive Board Game built with React and Typescript!
 
 [https://bankrupt.now.sh](https://bankrupt.now.sh)
 

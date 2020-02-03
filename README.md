@@ -2,6 +2,8 @@
 
 Responsive Board Game
 
+[https://bankrupt.now.sh](https://bankrupt.now.sh)
+
 # TODOs
 
 - make responsive grid board (start with mobile view)
